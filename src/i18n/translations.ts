@@ -134,9 +134,9 @@ const en: Translations = {
       },
       {
         year: '2025',
-        title: 'Dev Focus',
+        title: 'Hired as Developer I',
         place: '@ FIEB',
-        desc: 'September 2025: the internship pivoted to development — C#, .NET, Python, web stack, SQL. Main project: new SESI/SENAI transparency portal.',
+        desc: 'September 2025: hired as Developer I, ending the internship. Working with C#, .NET, Python, web stack, and SQL. Main project: new SESI/SENAI transparency portal.',
       },
       {
         year: '2023',
@@ -266,9 +266,9 @@ const pt: Translations = {
       },
       {
         year: '2025',
-        title: 'Foco em Desenvolvimento',
+        title: 'Contratado como Desenvolvedor I',
         place: '@ FIEB',
-        desc: 'Setembro/2025: o estágio virou foco em desenvolvimento — C#, .NET, Python, web stack, SQL. Projeto principal: novo portal de transparência do SESI/SENAI.',
+        desc: 'Setembro/2025: contratado como Desenvolvedor I, encerrando o estágio. Trabalho com C#, .NET, Python, web e SQL. Projeto principal: novo portal de transparência do SESI/SENAI.',
       },
       {
         year: '2023',
@@ -398,9 +398,9 @@ const ru: Translations = {
       },
       {
         year: '2025',
-        title: 'Фокус на разработку',
+        title: 'Стал Разработчиком I',
         place: '@ FIEB',
-        desc: 'Сентябрь 2025: стажировка сместилась в сторону разработки — C#, .NET, Python, веб-стек, SQL. Главный проект — новый портал прозрачности SESI/SENAI.',
+        desc: 'Сентябрь 2025: принят на должность Разработчика I, стажировка завершена. Работаю с C#, .NET, Python, веб-стеком и SQL. Главный проект — новый портал прозрачности SESI/SENAI.',
       },
       {
         year: '2023',
