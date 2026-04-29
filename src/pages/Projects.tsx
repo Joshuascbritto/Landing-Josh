@@ -1,8 +1,6 @@
 import { useTranslation } from '../i18n/LanguageContext'
 
-// PLACEHOLDER: hardcoded repo metadata. Replace with real GitHub
-// usernames / URLs / numbers when you wire this up. Repo NAMES are
-// kept in English (they are code identifiers, not translatable).
+// Repo NAMES are kept in English (they are code identifiers, not translatable).
 interface Repo {
   name: string
   language: string
@@ -14,44 +12,12 @@ interface Repo {
 
 const REPOS: Repo[] = [
   {
-    name: 'project-alpha',
-    language: 'Python',
-    langColor: '#3572A5',
-    stars: 42,
-    forks: 8,
-    href: 'https://github.com/joshua/project-alpha',
-  },
-  {
-    name: 'voxel-engine',
-    language: 'Rust',
-    langColor: '#dea584',
-    stars: 128,
-    forks: 23,
-    href: 'https://github.com/joshua/voxel-engine',
-  },
-  {
-    name: 'dotfiles',
-    language: 'Shell',
-    langColor: '#89e051',
-    stars: 15,
-    forks: 3,
-    href: 'https://github.com/joshua/dotfiles',
-  },
-  {
-    name: 'portfolio-site',
-    language: 'TypeScript',
-    langColor: '#3178c6',
-    stars: 7,
-    forks: 1,
-    href: 'https://github.com/joshua/portfolio-site',
-  },
-  {
-    name: 'ml-from-scratch',
-    language: 'Python',
-    langColor: '#3572A5',
-    stars: 89,
-    forks: 14,
-    href: 'https://github.com/joshua/ml-from-scratch',
+    name: 'box-box',
+    language: 'PHP',
+    langColor: '#4F5D95',
+    stars: 0,
+    forks: 0,
+    href: 'https://github.com/Joshuascbritto/box-box',
   },
 ]
 

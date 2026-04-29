@@ -166,16 +166,8 @@ const en: Translations = {
     stars: 'stars',
     forks: 'forks',
     descriptions: {
-      'project-alpha':
-        'A CLI tool for automating deployment pipelines. Reads YAML configs and orchestrates multi-step builds with parallel execution and clean failure isolation.',
-      'voxel-engine':
-        'A minimal voxel rendering engine built from scratch in Rust. Implements greedy meshing, frustum culling, and chunk streaming for effectively infinite terrain.',
-      dotfiles:
-        'My personal dotfiles. Neovim, tmux, zsh, and i3 configs. Managed with GNU Stow and lovingly over-commented.',
-      'portfolio-site':
-        'This website. Built with React + Vite. Brutalist by design, no UI libraries, no compromises.',
-      'ml-from-scratch':
-        'Neural network implementations using only NumPy. Backprop, CNNs, and a small transformer rebuilt from the ground up to actually understand them.',
+      'box-box':
+        'Formula 1 podium predictor. Users call P1/P2/P3 and DNF count before lights-out, then climb a seasonal accuracy leaderboard. Laravel 11 + Postgres API, React + Vite + TypeScript front, magic-link auth.',
     },
   },
   contact: {
@@ -298,16 +290,8 @@ const pt: Translations = {
     stars: 'estrelas',
     forks: 'forks',
     descriptions: {
-      'project-alpha':
-        'Ferramenta de linha de comando pra automatizar pipelines de deploy. Lê configs em YAML e orquestra builds em múltiplas etapas com execução paralela e falhas isoladas.',
-      'voxel-engine':
-        'Engine de renderização voxel mínima feita do zero em Rust. Greedy meshing, frustum culling e streaming de chunks pra terreno praticamente infinito.',
-      dotfiles:
-        'Meus dotfiles pessoais. Configs de Neovim, tmux, zsh e i3. Gerenciados com GNU Stow e cuidadosamente comentados.',
-      'portfolio-site':
-        'Este site. Feito com React + Vite. Brutalista por design, sem libs de UI, sem concessões.',
-      'ml-from-scratch':
-        'Implementações de redes neurais usando só NumPy. Backprop, CNNs e um transformer pequeno reconstruído do zero pra realmente entender.',
+      'box-box':
+        'Palpiteiro de pódio da Fórmula 1. O usuário crava P1/P2/P3 e número de DNFs antes do semáforo apagar e disputa um ranking sazonal por precisão. API em Laravel 11 + Postgres, front em React + Vite + TypeScript, login por magic link.',
     },
   },
   contact: {
@@ -430,16 +414,8 @@ const ru: Translations = {
     stars: 'звёзд',
     forks: 'форков',
     descriptions: {
-      'project-alpha':
-        'CLI-утилита для автоматизации деплой-пайплайнов. Читает YAML-конфиги и оркеструет многоэтапные сборки с параллельным выполнением и изоляцией ошибок.',
-      'voxel-engine':
-        'Минималистичный воксельный рендерер, написанный на Rust с нуля. Greedy meshing, отсечение по фрустуму и стриминг чанков для практически бесконечного ландшафта.',
-      dotfiles:
-        'Мои личные dotfiles. Конфиги Neovim, tmux, zsh и i3. Управляются через GNU Stow и любовно прокомментированы.',
-      'portfolio-site':
-        'Этот сайт. Сделан на React + Vite. Брутализм по умолчанию, без UI-библиотек, без компромиссов.',
-      'ml-from-scratch':
-        'Реализации нейросетей на чистом NumPy. Backprop, CNN и маленький трансформер, собранный с нуля, чтобы действительно его понять.',
+      'box-box':
+        'Прогнозы на подиум Формулы 1. Игрок называет P1/P2/P3 и число сходов до старта и борется за сезонный рейтинг точности. API на Laravel 11 + Postgres, фронт на React + Vite + TypeScript, вход по magic-link.',
     },
   },
   contact: {
