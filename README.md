@@ -32,6 +32,7 @@ no clique de uma bandeira, e persiste a escolha em `localStorage`.
 | i18n        | Context API + objeto de traduções tipado — sem libs             |
 | Fontes      | Google Fonts: **JetBrains Mono** (display) + **DM Sans** (body) |
 | Persistência| `localStorage` (chave `joshua.locale`)                          |
+| Telemetria  | [@vercel/analytics](https://vercel.com/docs/analytics) + [@vercel/speed-insights](https://vercel.com/docs/speed-insights) — montados em `App.tsx` |
 
 ---
 
@@ -41,13 +42,18 @@ no clique de uma bandeira, e persiste a escolha em `localStorage`.
 .
 ├── index.html                  # entry HTML, link Google Fonts, meta tags
 ├── package.json
+├── package-lock.json
 ├── vite.config.ts
 ├── tsconfig.json
 ├── tsconfig.node.json
 ├── .gitignore
+├── public/
+│   └── projects/               # screenshots dos repos exibidos em /projects
+│       ├── landing-josh.png
+│       └── box-box.png
 └── src/
     ├── main.tsx                # bootstrap React + Router + LanguageProvider
-    ├── App.tsx                 # shell, rotas, footer, overlays (grain/scanlines)
+    ├── App.tsx                 # shell, rotas, footer, overlays (grain/scanlines), Vercel Analytics/SpeedInsights
     ├── styles.css              # ÚNICA folha de estilo (paleta, layout, animações)
     ├── components/
     │   └── Nav.tsx             # navbar sticky + prompt + bandeiras
@@ -56,7 +62,7 @@ no clique de uma bandeira, e persiste a escolha em `localStorage`.
     │   └── LanguageContext.tsx # Provider + hook useTranslation()
     └── pages/
         ├── About.tsx           # hero + bio + interesses + timeline (rota /)
-        ├── Projects.tsx        # lista hardcoded de repos (rota /projects)
+        ├── Projects.tsx        # lista hardcoded de repos + grid 2-col (rota /projects)
         └── Contact.tsx         # email/telefone/links (rota /contact)
 ```
 
@@ -80,7 +86,7 @@ npm run build
 npm run preview
 ```
 
-O build de produção atual está em **~61 KB JS gzip** + **~3 KB CSS gzip**. Se subir muito disso, alguma coisa errada não está certa.
+O build de produção atual está em **~63 KB JS gzip** + **~3,5 KB CSS gzip** (sem contar as PNGs em `public/projects/`). Se subir muito disso, alguma coisa errada não está certa.
 
 ---
 
@@ -201,13 +207,25 @@ diferencial do site é parecer escrito por uma pessoa real em três idiomas.
 ### Repos no `/projects`
 
 Os repos são hardcoded em [`src/pages/Projects.tsx`](src/pages/Projects.tsx) (constante `REPOS`):
-nome, linguagem, cor da bolinha, stars, forks, link.
+nome, linguagem, cor da bolinha, stars, forks, link do GitHub (`href`),
+URL pra onde a thumbnail clica (`liveUrl`) e caminho da imagem (`imgSrc`).
+
+A página renderiza os cards num **grid de 2 colunas** que colapsa pra 1 coluna abaixo
+de 760px. Cada card é um flex column com a thumbnail no topo e a meta-row (linguagem,
+stars, forks, link do GitHub) sempre fixada no rodapé via `margin-top: auto`.
 
 As **descrições** dos repos ficam em `t.projects.descriptions[<nome-do-repo>]`
 no [`translations.ts`](src/i18n/translations.ts). Pra adicionar um repo novo:
 
-1. Acrescenta um objeto na constante `REPOS` em `Projects.tsx`.
-2. Adiciona uma chave com o mesmo nome dentro de `descriptions` nos **três idiomas**.
+1. Tira um screenshot 1400×900 (ou similar) da página inicial do projeto e salva em
+   `public/projects/<nome-do-repo>.png`. Se o projeto não tiver deploy, pode rodar a
+   build localmente e usar Edge headless (`--screenshot=…`) ou qualquer ferramenta de
+   captura. PNGs ficam servidas estaticamente em `/projects/<nome>.png`.
+2. Acrescenta um objeto na constante `REPOS` em `Projects.tsx` com **todos os campos**:
+   `name`, `language`, `langColor`, `stars`, `forks`, `href` (GitHub), `liveUrl`
+   (deploy ou GitHub se não tiver) e `imgSrc` (`'/projects/<nome>.png'`).
+3. Adiciona uma chave com o mesmo `name` dentro de `descriptions` nos **três idiomas**
+   em `translations.ts`. O TS reclama se faltar.
 
 ---
 
