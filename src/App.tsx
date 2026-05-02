@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import { Nav } from './components/Nav'
 import { About } from './pages/About'
 import { Projects } from './pages/Projects'
@@ -25,6 +26,7 @@ export default function App() {
         <span>{t.footer.copyright}</span>
         <span>{t.footer.builtWith}</span>
       </footer>
+      <Analytics />
     </div>
   )
 }
