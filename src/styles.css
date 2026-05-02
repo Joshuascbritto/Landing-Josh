@@ -157,7 +157,7 @@ button:focus-visible {
 }
 .nav-tab {
   font-family: var(--mono);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--fg);
