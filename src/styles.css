@@ -157,17 +157,20 @@ button:focus-visible {
 }
 .nav-tab {
   font-family: var(--mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  color: var(--mute);
-  padding: 6px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--fg);
+  padding: 6px 2px;
   border-bottom: 1px solid transparent;
   transition: color var(--snap) steps(2, jump-none),
               border-color var(--snap) steps(2, jump-none);
 }
-.nav-tab:hover {
+.nav-tab:hover,
+.nav-tab:focus-visible {
   color: var(--fg);
-  border-bottom-color: var(--mute);
+  border-bottom-color: var(--accent);
+  outline: none;
 }
 .nav-tab.is-active {
   color: var(--accent);
