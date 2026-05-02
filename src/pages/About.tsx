@@ -18,7 +18,6 @@ const LANGS: Lang[] = [
   { name: 'C',          color: '#555555' },
   { name: 'C++',        color: '#f34b7d' },
   { name: 'C#',         color: '#178600' },
-  { name: 'Ruby',       color: '#701516' },
   { name: 'Shell',      color: '#89e051' },
   { name: 'SQL',        color: '#e38c00' },
 ]
