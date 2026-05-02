@@ -5,6 +5,7 @@ import { About } from './pages/About'
 import { Projects } from './pages/Projects'
 import { Contact } from './pages/Contact'
 import { useTranslation } from './i18n/LanguageContext'
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 export default function App() {
   const { t } = useTranslation()
