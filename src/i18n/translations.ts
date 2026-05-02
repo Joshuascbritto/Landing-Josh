@@ -128,9 +128,9 @@ const en: Translations = {
     entries: [
       {
         year: '2026',
-        title: 'Transfer to FACS EAD',
-        place: '@ FACS',
-        desc: 'Switched universities in early 2026. CS bachelor expected May 2027.',
+        title: 'Transfer to UNIFACS (Distance Learning)',
+        place: '@ UNIFACS',
+        desc: 'Switched universities in early 2026. Computer Science bachelor expected May 2027.',
       },
       {
         year: '2025',
@@ -146,9 +146,9 @@ const en: Translations = {
       },
       {
         year: '2022',
-        title: 'Started CS Bachelor',
-        place: '@ Unijorge',
-        desc: 'Started Computer Science at Unijorge. Four years before the transfer.',
+        title: 'Started Computer Science Bachelor',
+        place: '@ Universidade Jorge Amado',
+        desc: 'Started Computer Science at Universidade Jorge Amado. Four years before the transfer.',
       },
       {
         year: '2021',
@@ -252,8 +252,8 @@ const pt: Translations = {
     entries: [
       {
         year: '2026',
-        title: 'Transferência pra FACS EAD',
-        place: '@ FACS',
+        title: 'Transferência pra UNIFACS EAD',
+        place: '@ UNIFACS',
         desc: 'Mudei de faculdade no início de 2026. Bacharelado em Ciência da Computação previsto pra maio de 2027.',
       },
       {
@@ -270,9 +270,9 @@ const pt: Translations = {
       },
       {
         year: '2022',
-        title: 'Início do Bacharelado em CC',
-        place: '@ Unijorge',
-        desc: 'Comecei Ciência da Computação na Unijorge. Quatro anos antes da transferência.',
+        title: 'Início do Bacharelado em Ciência da Computação',
+        place: '@ Universidade Jorge Amado',
+        desc: 'Comecei Ciência da Computação na Universidade Jorge Amado. Quatro anos antes da transferência.',
       },
       {
         year: '2021',
@@ -376,8 +376,8 @@ const ru: Translations = {
     entries: [
       {
         year: '2026',
-        title: 'Перевод в FACS EAD',
-        place: '@ FACS',
+        title: 'Перевод в UNIFACS (дистанционное обучение)',
+        place: '@ UNIFACS',
         desc: 'В начале 2026 перевёлся в другой вуз. Бакалавр по информатике — защита в мае 2027.',
       },
       {
@@ -394,9 +394,9 @@ const ru: Translations = {
       },
       {
         year: '2022',
-        title: 'Начало бакалавриата по CS',
-        place: '@ Unijorge',
-        desc: 'Начал учиться на информатике в Unijorge. Четыре года до перевода.',
+        title: 'Начало бакалавриата по информатике',
+        place: '@ Universidade Jorge Amado',
+        desc: 'Начал учиться на информатике в Universidade Jorge Amado. Четыре года до перевода.',
       },
       {
         year: '2021',
