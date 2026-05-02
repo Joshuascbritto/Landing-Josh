@@ -385,6 +385,7 @@ button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  cursor: pointer;
   transition: color var(--snap) steps(2, jump-none),
               background var(--snap) steps(2, jump-none),
               border-color var(--snap) steps(2, jump-none);
@@ -393,12 +394,57 @@ button:focus-visible {
   color: var(--accent);
   font-weight: 700;
 }
-.tag:hover {
+.tag:hover,
+.tag:focus-visible {
+  color: #000;
+  background: var(--accent);
+  border-color: var(--accent);
+  outline: none;
+}
+.tag:hover .tag-bracket,
+.tag:focus-visible .tag-bracket { color: #000; }
+.tag.is-active {
   color: #000;
   background: var(--accent);
   border-color: var(--accent);
 }
-.tag:hover .tag-bracket { color: #000; }
+.tag.is-active .tag-bracket { color: #000; }
+
+.interest-detail {
+  margin-top: 1.25rem;
+  border: 1px solid var(--line-2);
+  background: var(--bg-elev);
+  padding: 0.95rem 1.05rem;
+  display: grid;
+  gap: 0.55rem;
+  animation: rise 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.interest-detail-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-family: var(--mono);
+  letter-spacing: 0.02em;
+}
+.interest-detail-prompt {
+  color: var(--accent);
+  font-weight: 700;
+}
+.interest-detail-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 0;
+}
+.interest-detail-text {
+  font-family: var(--sans);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--fg);
+  max-width: 72ch;
+  margin: 0;
+  white-space: pre-wrap;
+}
 
 /* ==============================================================
    LANGUAGES — bordered cells with linguist-style colored dots

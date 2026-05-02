@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useTranslation } from '../i18n/LanguageContext'
 
 const styleDelay = (ms: number) => ({ animationDelay: `${ms}ms` })
@@ -23,7 +24,25 @@ const LANGS: Lang[] = [
 ]
 
 export function About() {
-  const { t } = useTranslation()
+  const { t, locale } = useTranslation()
+  const [activeInterest, setActiveInterest] = useState<number | null>(null)
+
+  // Reset selection when locale changes — items array reorders are unlikely
+  // but the description text would otherwise mismatch the highlighted tag.
+  useEffect(() => { setActiveInterest(null) }, [locale])
+
+  // Esc closes the detail panel.
+  useEffect(() => {
+    if (activeInterest === null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActiveInterest(null)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [activeInterest])
+
+  const active = activeInterest !== null ? t.interests.items[activeInterest] : null
+
   return (
     <div className="page page-about">
       {/* HERO ---------------------------------------------------- */}
@@ -110,14 +129,34 @@ export function About() {
             <span className="block-rule" aria-hidden="true" />
           </header>
           <ul className="tags">
-            {t.interests.items.map((item) => (
-              <li key={item} className="tag">
-                <span className="tag-bracket">[</span>
-                {item}
-                <span className="tag-bracket">]</span>
+            {t.interests.items.map((item, i) => (
+              <li key={item.name}>
+                <button
+                  type="button"
+                  className={'tag' + (i === activeInterest ? ' is-active' : '')}
+                  onClick={() => setActiveInterest(i === activeInterest ? null : i)}
+                  aria-expanded={i === activeInterest}
+                  aria-controls="interest-detail"
+                >
+                  <span className="tag-bracket">[</span>
+                  {item.name}
+                  <span className="tag-bracket">]</span>
+                </button>
               </li>
             ))}
           </ul>
+
+          {active && (
+            <div id="interest-detail" className="interest-detail" role="region" aria-live="polite">
+              <div className="interest-detail-head">
+                <span className="interest-detail-prompt" aria-hidden="true">›</span>
+                <h3 className="interest-detail-title">{active.name}</h3>
+              </div>
+              <p className="interest-detail-text">
+                {active.description || t.interests.empty}
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

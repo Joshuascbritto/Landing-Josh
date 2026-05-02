@@ -38,7 +38,12 @@ export interface Translations {
   }
   about: { heading: string; label: string; bio: string }
   languages: { heading: string; label: string }
-  interests: { heading: string; label: string; items: string[] }
+  interests: {
+    heading: string
+    label: string
+    empty: string
+    items: { name: string; description: string }[]
+  }
   timeline: { heading: string; label: string; entries: TimelineEntry[] }
   projects: {
     heading: string
@@ -104,23 +109,83 @@ const en: Translations = {
   interests: {
     heading: '// interests',
     label: 'tags --list',
-    // PLACEHOLDER (en): edit list freely
+    empty: 'soon…',
     items: [
-      'Systems Programming',
-      'Linux',
-      'Open Source',
-      'Cryptography',
-      'Mechanical Keyboards',
-      'Coffee',
-      'Vim',
-      'Self-Hosting',
-      'Games',
-      'Jellyfish',
-      'Music',
-      'Motorcycling',
-      'Formula 1',
-      'Cars',
-      'PHP',
+      {
+        name: 'Systems Programming',
+        description:
+          "My first contact with programming and the command line was through Minecraft, back when I was a kid. To get the game running I had to chain a bunch of commands and tweak things until something worked, and to play with friends I had to figure out IPs and mod versioning. I learned the hard way, before I knew any of it had a name.",
+      },
+      {
+        name: 'Linux',
+        description:
+          "Love at first sight. Been using it since technical school, where I spent a lot of time with Ubuntu and Debian — that's where I picked up my networking fundamentals and the Linux basics. Can't go back now — keyboard navigation turned into an extension of the hand.",
+      },
+      {
+        name: 'Open Source',
+        description:
+          "When I browsed mods for old games, I always looked for the ones with open source — after one incident where I downloaded a mod that had a virus. That's how I found out you could crack a mod open and read the code behind everything happening backstage. Never left.",
+      },
+      {
+        name: 'Cryptography',
+        description:
+          "Always liked the idea. Picked it up more seriously while studying databases, when it clicked that not every piece of information can or should be exposed. A lot of what I know about vulnerabilities I learned on a famous site, hackthissite.org — really good stuff.",
+      },
+      {
+        name: 'Mechanical Keyboards',
+        description:
+          'Grew up on the stock laptop keyboard, until I found out from YouTube videos that there was a whole "extension" of that world out there — that satisfying noise on every click. Had to stop and reconsider my life.',
+      },
+      {
+        name: 'Coffee',
+        description:
+          "Comes with the territory, I figure. Didn't like it until I got used to the taste. Now I can tell regular from extra-strong — unfortunately.",
+      },
+      {
+        name: 'Vim',
+        description:
+          "Equal parts motivating and brutal — courtesy of technical school. Every navigation detail had to be understood end to end. Funny remembering friends flailing just to figure out how to quit the editor.",
+      },
+      {
+        name: 'Self-Hosting',
+        description:
+          "Picked it up early, using my own machine as a server to play with friends remotely. Good days of Minecraft and Terraria.",
+      },
+      {
+        name: 'Games',
+        description:
+          "Like a lot of things on this list, games were a huge part of my computer journey and what I learned along the way: file navigation, terms like FPS and ms, modding the base game, figuring out what my rig could handle. Counter-Strike, Minecraft, Left 4 Dead, Overwatch, Osu! — all of them played a part in growing me into a heavy computer user.",
+      },
+      {
+        name: 'Jellyfish',
+        description:
+          "My favorite animal. Fascinating creatures despite being 95–99% just water. For example: they're the namesake of my favorite Ubuntu release (Jellyfish); some species glow in the dark via bioluminescence; they have no brain, no heart, and no lungs. Just chill creatures drifting around the ocean.",
+      },
+      {
+        name: 'Music',
+        description:
+          "Don't do anything without music. I build my Spotify playlists by hand, and lately I've been deep into jazz and Brazilian trap.",
+      },
+      {
+        name: 'Motorcycling',
+        description:
+          "Big fan of bikes. As I'm writing this, I'm in the middle of getting my license — but the concept of a bicycle with a motor strapped to it already makes me happy on its own.",
+      },
+      {
+        name: 'Formula 1',
+        description:
+          "I follow it more for the engineering than the sport itself. The idea of hundreds of people working a whole year to win back tenths of a second gets me excited in a way that's hard to explain. Rooting for McLaren.",
+      },
+      {
+        name: 'Cars',
+        description:
+          "I like the engineering, but what really hooks me is when design and history meet. Two favorites for opposite reasons: the Ford Maverick '76, which carries the weight of a very specific era of Brazilian cars, with a silhouette that aged better than it had any right to; and the Toyota Supra Mk4, which kind of accidentally became a legend and has one of the best-resolved rear ends that ever rolled off a factory line.",
+      },
+      {
+        name: 'PHP',
+        description:
+          "First language I took seriously. It's a messy language — front, back, and database all in the same file — and there's a kind of beauty in that.",
+      },
     ],
   },
   timeline: {
@@ -231,23 +296,83 @@ const pt: Translations = {
   interests: {
     heading: '// interesses',
     label: 'tags --list',
-    // PLACEHOLDER (pt): edite a lista livremente
+    empty: 'em breve…',
     items: [
-      'Programação de Sistemas',
-      'Linux',
-      'Código Aberto',
-      'Criptografia',
-      'Teclados Mecânicos',
-      'Café',
-      'Vim',
-      'Self-Hosting',
-      'Jogos',
-      'Água-viva',
-      'Música',
-      'Motociclismo',
-      'Fórmula 1',
-      'Carros',
-      'PHP',
+      {
+        name: 'Programação de Sistemas',
+        description:
+          'Meu primeiro contato com programação e linha de comando foi com Minecraft, quando era menor. Para baixar o jogo precisava rodar uma série de comandos e fazer alterações até algo funcionar, e para jogar com os amigos tinha que entender de IP e versionamento dos mods. Aprendi na marra, antes de saber que aquilo tinha nome.',
+      },
+      {
+        name: 'Linux',
+        description:
+          'Foi amor à primeira vista. Uso desde o curso técnico, onde mexia bastante com Ubuntu e Debian, e foi ali que aprendi meus fundamentos de rede e o básico de Linux. Hoje já não consigo voltar — navegar pelo teclado virou extensão da mão.',
+      },
+      {
+        name: 'Código Aberto',
+        description:
+          'Quando olhava mods de jogos antigos, sempre procurava saber quais tinham código aberto, depois de um incidente em que baixei um mod com vírus. Foi assim que descobri que dava para abrir o mod e ler o código por trás do que estava acontecendo nos bastidores. Nunca mais saí.',
+      },
+      {
+        name: 'Criptografia',
+        description:
+          'Sempre curti a ideia. Aprendi mais a fundo estudando banco de dados, quando entendi que nem toda informação pode ou deve ser exposta. Peguei boa parte do que sei sobre vulnerabilidades num site famoso, o hackthissite.org — muito top.',
+      },
+      {
+        name: 'Teclados Mecânicos',
+        description:
+          'Cresci usando o teclado padrão de notebook, até descobrir em vídeos do YouTube que existia uma "extensão" desse mundo, com aquele barulho a cada clique. Tive que parar e repensar minha vida.',
+      },
+      {
+        name: 'Café',
+        description:
+          'Imagino que vem junto com o gostar da área. Não gostava até me acostumar com o gosto. Hoje já diferencio o normal do extra-forte — infelizmente.',
+      },
+      {
+        name: 'Vim',
+        description:
+          'Experiência motivadora e desafiadora do curso técnico. Cada detalhe da navegação tinha que ser entendido do início ao fim. Engraçado lembrar dos amigos se debatendo só pra conseguir sair do editor.',
+      },
+      {
+        name: 'Self-Hosting',
+        description:
+          'Aprendi cedo, usando minha máquina como servidor pra jogar com os amigos à distância. Bons tempos de Minecraft e Terraria.',
+      },
+      {
+        name: 'Jogos',
+        description:
+          'Como muita coisa nessa lista, jogos foram parte enorme da minha jornada com computador e do meu aprendizado: navegação de arquivos, termos como FPS e ms, modificações do jogo original, descobrir o que a minha máquina aguenta rodar. Counter-Strike, Minecraft, Left 4 Dead, Overwatch, Osu! — todos participaram do meu crescimento como usuário ávido de computador.',
+      },
+      {
+        name: 'Água-viva',
+        description:
+          'Meu animal preferido. Tem características fascinantes apesar de ser 95% a 99% só água. Por exemplo: dá nome à minha versão preferida do Ubuntu (Jellyfish); algumas espécies brilham no escuro por bioluminescência; não têm cérebro, coração nem pulmão. São só criaturas relax vagando pelo oceano.',
+      },
+      {
+        name: 'Música',
+        description:
+          'Não faço nada sem música. Monto minhas playlists na mão no Spotify, e ultimamente tenho curtido bastante jazz e trap brasileiro.',
+      },
+      {
+        name: 'Motociclismo',
+        description:
+          'Gosto muito de motos. Enquanto escrevo isso, estou tirando a carteira — mas o conceito de uma bicicleta com motor já me deixa feliz por si só.',
+      },
+      {
+        name: 'Fórmula 1',
+        description:
+          'Acompanho mais pela engenharia do que pelo esporte em si. A ideia de centenas de pessoas trabalhando o ano inteiro pra ganhar décimos de segundo me deixa animado de um jeito que é difícil explicar. Torço pela McLaren.',
+      },
+      {
+        name: 'Carros',
+        description:
+          'Gosto da engenharia, mas o que me prende mesmo é quando design e história se encontram. Tenho dois favoritos por motivos opostos: o Ford Maverick 76, que carrega aquele peso de carro brasileiro de uma era específica, com uma silhueta que envelheceu melhor do que devia; e o Toyota Supra Mk4, que virou lenda meio sem querer e tem uma das traseiras mais bem resolvidas que já saíram de uma fábrica.',
+      },
+      {
+        name: 'PHP',
+        description:
+          'Primeira linguagem que levei a sério. É uma linguagem suja — front, back e banco tudo no mesmo arquivo — e tem sua beleza nisso.',
+      },
     ],
   },
   timeline: {
@@ -358,23 +483,83 @@ const ru: Translations = {
   interests: {
     heading: '// интересы',
     label: 'tags --list',
-    // PLACEHOLDER (ru): свободно редактируемый список
+    empty: 'скоро…',
     items: [
-      'Системное программирование',
-      'Linux',
-      'Open Source',
-      'Криптография',
-      'Механические клавиатуры',
-      'Кофе',
-      'Vim',
-      'Self-hosting',
-      'Игры',
-      'Медузы',
-      'Музыка',
-      'Мотоциклы',
-      'Формула 1',
-      'Автомобили',
-      'PHP',
+      {
+        name: 'Системное программирование',
+        description:
+          'Моё первое знакомство с программированием и командной строкой случилось через Minecraft, ещё в детстве. Чтобы запустить игру, нужно было выполнить целую серию команд и что-то править, пока всё не заработает, а чтобы поиграть с друзьями — разобраться с IP и версионированием модов. Учился на ходу, ещё не зная, что у всего этого есть название.',
+      },
+      {
+        name: 'Linux',
+        description:
+          'Любовь с первого взгляда. Пользуюсь со времён техникума, где много возился с Ubuntu и Debian — там же подтянул базу по сетям и основы Linux. Сейчас уже не могу обратно — навигация с клавиатуры стала продолжением руки.',
+      },
+      {
+        name: 'Open Source',
+        description:
+          'Когда залипал в моды для старых игр, всегда искал те, что с открытым исходником — после одного случая, когда скачал мод с вирусом. Так и узнал, что мод можно вскрыть и прочитать, что там творится за кулисами. Так и остался.',
+      },
+      {
+        name: 'Криптография',
+        description:
+          'Всегда нравилась сама идея. Глубже зашёл, когда изучал базы данных и понял, что не всякую информацию можно и нужно показывать. Большую часть того, что знаю про уязвимости, подобрал на одном известном сайте — hackthissite.org. Очень крутая штука.',
+      },
+      {
+        name: 'Механические клавиатуры',
+        description:
+          'Вырос на стандартной клавиатуре ноутбука, пока в YouTube не наткнулся на целое "расширение" этого мира, с тем самым звуком на каждом нажатии. Пришлось остановиться и переосмыслить свою жизнь.',
+      },
+      {
+        name: 'Кофе',
+        description:
+          'Видимо, прилагается к профессии. Не нравился, пока не привык ко вкусу. Сейчас уже отличаю обычный от крепкого — к сожалению.',
+      },
+      {
+        name: 'Vim',
+        description:
+          'Опыт из техникума — одновременно мотивирующий и тяжёлый. Каждую мелочь в навигации приходилось разбирать от и до. Смешно вспоминать, как друзья мучились, просто чтобы выйти из редактора.',
+      },
+      {
+        name: 'Self-hosting',
+        description:
+          'Освоил рано — использовал свой комп как сервер, чтобы играть с друзьями на расстоянии. Хорошие были времена с Minecraft и Terraria.',
+      },
+      {
+        name: 'Игры',
+        description:
+          'Как и многое в этом списке, игры были огромной частью моего пути в компах и того, как я учился: навигация по файлам, термины вроде FPS и ms, модификации оригинальной игры, выяснение того, что моя машина вообще тянет. Counter-Strike, Minecraft, Left 4 Dead, Overwatch, Osu! — все они приложились к тому, чтобы я вырос в заядлого пользователя компьютера.',
+      },
+      {
+        name: 'Медузы',
+        description:
+          'Моё любимое животное. Удивительные создания, хотя на 95–99% состоят из одной воды. Несколько фактов: они дали название моему любимому релизу Ubuntu (Jellyfish); некоторые виды светятся в темноте за счёт биолюминесценции; у них нет ни мозга, ни сердца, ни лёгких. Просто расслабленные создания, дрейфующие по океану.',
+      },
+      {
+        name: 'Музыка',
+        description:
+          'Ничего не делаю без музыки. Плейлисты в Spotify собираю руками, и в последнее время сильно подсел на джаз и бразильский трэп.',
+      },
+      {
+        name: 'Мотоциклы',
+        description:
+          'Очень люблю мотоциклы. Пока пишу это, как раз получаю права — но сама идея велосипеда с мотором уже сама по себе делает меня счастливым.',
+      },
+      {
+        name: 'Формула 1',
+        description:
+          'Смотрю больше ради инженерии, чем ради самого спорта. Идея, что сотни людей целый год работают, чтобы выиграть десятые доли секунды, заводит меня так, что трудно объяснить. Болею за McLaren.',
+      },
+      {
+        name: 'Автомобили',
+        description:
+          "Мне нравится инженерия, но цепляет именно стык дизайна и истории. Двое любимых по противоположным причинам: Ford Maverick '76, на котором лежит груз очень конкретной эпохи бразильского автопрома, с силуэтом, который состарился лучше, чем должен был; и Toyota Supra Mk4, ставшая легендой как-то случайно, с одной из самых красивых задних частей, какие когда-либо сходили с конвейера.",
+      },
+      {
+        name: 'PHP',
+        description:
+          'Первый язык, к которому я отнёсся всерьёз. Грязный язык — фронт, бэк и база всё в одном файле — и в этом своя красота.',
+      },
     ],
   },
   timeline: {
