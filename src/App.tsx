@@ -28,6 +28,7 @@ export default function App() {
         <span>{t.footer.builtWith}</span>
       </footer>
       <Analytics />
+      <SpeedInsights />
     </div>
   )
 }
