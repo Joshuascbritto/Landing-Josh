@@ -72,7 +72,7 @@ export interface Translations {
 // -------------------------------------------------------------
 const en: Translations = {
   meta: {
-    title: 'joshua // computer scientist',
+    title: 'Josh',
     description: 'Joshua — Computer Scientist. Personal portfolio.',
   },
   nav: { about: 'about', projects: 'projects', contact: 'contact' },
@@ -196,7 +196,7 @@ const en: Translations = {
 // -------------------------------------------------------------
 const pt: Translations = {
   meta: {
-    title: 'joshua // cientista da computação',
+    title: 'Josh',
     description: 'Joshua — Cientista da Computação. Portfólio pessoal.',
   },
   nav: { about: 'sobre', projects: 'projetos', contact: 'contato' },
@@ -320,7 +320,7 @@ const pt: Translations = {
 // -------------------------------------------------------------
 const ru: Translations = {
   meta: {
-    title: 'joshua // специалист по информатике',
+    title: 'Josh',
     description: 'Joshua — специалист по информатике. Личный портфолио.',
   },
   nav: { about: 'обо мне', projects: 'проекты', contact: 'контакт' },

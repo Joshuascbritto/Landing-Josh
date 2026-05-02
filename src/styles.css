@@ -197,6 +197,11 @@ button:focus-visible {
               border-color var(--snap) steps(2, jump-none),
               background var(--snap) steps(2, jump-none);
 }
+.flag svg {
+  width: 24px;
+  height: 18px;
+  display: block;
+}
 .flag:hover {
   filter: saturate(1.6) brightness(1.15);
   border-color: var(--accent);
