@@ -497,7 +497,11 @@ button:focus-visible {
    ============================================================== */
 .repos {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.1rem;
+}
+@media (max-width: 760px) {
+  .repos { grid-template-columns: 1fr; }
 }
 .repo {
   border: 1px solid var(--line-2);
@@ -505,6 +509,8 @@ button:focus-visible {
   transition: border-color var(--snap) steps(2, jump-none),
               transform var(--snap) steps(2, jump-none);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .repo:hover {
   border-color: var(--accent);
@@ -523,6 +529,26 @@ button:focus-visible {
   transition: opacity var(--snap) steps(2, jump-none);
 }
 .repo:hover::after { opacity: 1; }
+
+.repo-thumb {
+  display: block;
+  border-bottom: 1px solid var(--line-2);
+  background: var(--bg);
+  overflow: hidden;
+  aspect-ratio: 12 / 7;
+  position: relative;
+}
+.repo-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(0.2) contrast(1.02);
+  transition: filter var(--snap) steps(2, jump-none);
+}
+.repo:hover .repo-thumb img { filter: none; }
+.repo:hover .repo-thumb { border-bottom-color: var(--accent); }
 
 .repo-head {
   display: flex;
@@ -559,6 +585,7 @@ button:focus-visible {
 }
 
 .repo-meta {
+  margin-top: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

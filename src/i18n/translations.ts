@@ -166,6 +166,8 @@ const en: Translations = {
     stars: 'stars',
     forks: 'forks',
     descriptions: {
+      'Landing-Josh':
+        "The portfolio site you're looking at. Digital brutalism, dark terminal, three languages (PT/EN/RU), zero UI libs. Vite + React 18 + strict TypeScript, hand-rolled CSS.",
       'box-box':
         'Formula 1 podium predictor. Users call P1/P2/P3 and DNF count before lights-out, then climb a seasonal accuracy leaderboard. Laravel 11 + Postgres API, React + Vite + TypeScript front, magic-link auth.',
     },
@@ -290,6 +292,8 @@ const pt: Translations = {
     stars: 'estrelas',
     forks: 'forks',
     descriptions: {
+      'Landing-Josh':
+        'O site de portfólio que você está vendo. Brutalismo digital, terminal escuro, três idiomas (PT/EN/RU), zero libs de UI. Vite + React 18 + TypeScript estrito, CSS na unha.',
       'box-box':
         'Palpiteiro de pódio da Fórmula 1. O usuário crava P1/P2/P3 e número de DNFs antes do semáforo apagar e disputa um ranking sazonal por precisão. API em Laravel 11 + Postgres, front em React + Vite + TypeScript, login por magic link.',
     },
@@ -414,6 +418,8 @@ const ru: Translations = {
     stars: 'звёзд',
     forks: 'форков',
     descriptions: {
+      'Landing-Josh':
+        'Сайт-портфолио, который вы сейчас смотрите. Цифровой брутализм, тёмный терминал, три языка (PT/EN/RU), без UI-библиотек. Vite + React 18 + строгий TypeScript, CSS вручную.',
       'box-box':
         'Прогнозы на подиум Формулы 1. Игрок называет P1/P2/P3 и число сходов до старта и борется за сезонный рейтинг точности. API на Laravel 11 + Postgres, фронт на React + Vite + TypeScript, вход по magic-link.',
     },
