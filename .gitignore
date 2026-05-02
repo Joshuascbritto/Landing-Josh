@@ -7,6 +7,11 @@ dist-ssr
 .env.*
 !.env.example
 
+# build artifacts (tsc -b emits these alongside vite.config.ts)
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
 # editor
 .vscode/*
 !.vscode/extensions.json
