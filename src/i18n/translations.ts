@@ -60,6 +60,7 @@ export interface Translations {
     linksLabel: string
     links: ContactLink[]
     closing: string
+    copied: string
   }
   footer: {
     copyright: string
@@ -186,6 +187,7 @@ const en: Translations = {
       { label: 'linkedin', href: 'https://www.linkedin.com/in/joshua-britto-143577297/' },
     ],
     closing: 'I prefer email. I respond within 24 hours, usually faster.',
+    copied: 'copied',
   },
   footer: {
     copyright: '© 2026 joshua. all rights reserved.',
@@ -312,6 +314,7 @@ const pt: Translations = {
       { label: 'linkedin', href: 'https://www.linkedin.com/in/joshua-britto-143577297/' },
     ],
     closing: 'Prefiro e-mail. Respondo em até 24 horas, normalmente bem mais rápido.',
+    copied: 'copiado',
   },
   footer: {
     copyright: '© 2026 joshua. todos os direitos reservados.',
@@ -438,6 +441,7 @@ const ru: Translations = {
       { label: 'linkedin', href: 'https://www.linkedin.com/in/joshua-britto-143577297/' },
     ],
     closing: 'Предпочитаю электронную почту. Отвечаю в течение 24 часов, обычно гораздо быстрее.',
+    copied: 'скопировано',
   },
   footer: {
     copyright: '© 2026 joshua. все права защищены.',

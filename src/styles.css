@@ -671,16 +671,58 @@ button:focus-visible {
   font-size: clamp(1rem, 1.55vw, 1.2rem);
   margin: 0;
 }
-.contact-val a {
+.contact-val a,
+.contact-val .contact-copy {
   color: var(--accent);
   border-bottom: 1px solid transparent;
   padding: 2px 1px;
   transition: color var(--snap) steps(2, jump-none),
               background var(--snap) steps(2, jump-none);
 }
-.contact-val a:hover {
+.contact-val a:hover,
+.contact-val .contact-copy:hover,
+.contact-val .contact-copy:focus-visible {
   background: var(--accent);
   color: #000;
+  outline: none;
+}
+.contact-copy {
+  font: inherit;
+  letter-spacing: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ==============================================================
+   COPY TOAST — brutalist notification, bottom-center, auto-dismiss
+   ============================================================== */
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.95rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--fg);
+  background: var(--bg-elev);
+  border: 1px solid var(--accent);
+  pointer-events: none;
+  animation: toast-in 0.18s steps(2, jump-none) both;
+}
+.copy-toast-prompt {
+  color: var(--accent);
+  font-weight: 700;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
 }
 .contact-links {
   display: flex;
@@ -741,6 +783,7 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .stagger { animation: none; opacity: 1; transform: none; }
   .cursor-blink { animation: none; }
+  .copy-toast { animation: none; }
   * { transition: none !important; }
 }
 

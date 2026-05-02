@@ -1,12 +1,49 @@
+import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from '../i18n/LanguageContext'
 
 const styleDelay = (ms: number) => ({ animationDelay: `${ms}ms` })
 
-const sanitizeTel = (v: string) => v.replace(/[^\d+]/g, '')
+const TOAST_MS = 2000
+
+async function copyToClipboard(value: string): Promise<void> {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(value)
+      return
+    } catch {
+      // fall through to legacy path
+    }
+  }
+  const ta = document.createElement('textarea')
+  ta.value = value
+  ta.setAttribute('readonly', '')
+  ta.style.position = 'fixed'
+  ta.style.opacity = '0'
+  document.body.appendChild(ta)
+  ta.select()
+  try {
+    document.execCommand('copy')
+  } catch {
+    // best-effort; nothing else to do
+  }
+  ta.remove()
+}
 
 export function Contact() {
   const { t } = useTranslation()
   const c = t.contact
+  const [toastId, setToastId] = useState<number | null>(null)
+
+  useEffect(() => {
+    if (toastId === null) return
+    const timer = window.setTimeout(() => setToastId(null), TOAST_MS)
+    return () => window.clearTimeout(timer)
+  }, [toastId])
+
+  const copy = useCallback((value: string) => {
+    void copyToClipboard(value).then(() => setToastId(Date.now()))
+  }, [])
+
   return (
     <div className="page page-contact">
       <section className="block stagger" style={styleDelay(40)}>
@@ -29,14 +66,28 @@ export function Contact() {
             <div className="contact-row stagger" style={styleDelay(200)}>
               <dt className="contact-key">{c.emailLabel}</dt>
               <dd className="contact-val">
-                <a href={`mailto:${c.email}`}>{c.email}</a>
+                <button
+                  type="button"
+                  className="contact-copy"
+                  onClick={() => copy(c.email)}
+                  title={c.email}
+                >
+                  {c.email}
+                </button>
               </dd>
             </div>
 
             <div className="contact-row stagger" style={styleDelay(280)}>
               <dt className="contact-key">{c.phoneLabel}</dt>
               <dd className="contact-val">
-                <a href={`tel:${sanitizeTel(c.phone)}`}>{c.phone}</a>
+                <button
+                  type="button"
+                  className="contact-copy"
+                  onClick={() => copy(c.phone)}
+                  title={c.phone}
+                >
+                  {c.phone}
+                </button>
               </dd>
             </div>
 
@@ -61,6 +112,18 @@ export function Contact() {
           </p>
         </div>
       </section>
+
+      {toastId !== null && (
+        <div
+          key={toastId}
+          className="copy-toast"
+          role="status"
+          aria-live="polite"
+        >
+          <span className="copy-toast-prompt" aria-hidden="true">›</span>
+          <span>{c.copied}</span>
+        </div>
+      )}
     </div>
   )
 }
