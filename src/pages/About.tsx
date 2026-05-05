@@ -128,22 +128,33 @@ export function About() {
             <h2 className="block-title">{t.interests.heading}</h2>
             <span className="block-rule" aria-hidden="true" />
           </header>
+          <p className="interests-hint" aria-hidden="true">
+            <span className="interests-hint-prompt">›</span>
+            {t.interests.hint}
+          </p>
           <ul className="tags">
-            {t.interests.items.map((item, i) => (
-              <li key={item.name}>
-                <button
-                  type="button"
-                  className={'tag' + (i === activeInterest ? ' is-active' : '')}
-                  onClick={() => setActiveInterest(i === activeInterest ? null : i)}
-                  aria-expanded={i === activeInterest}
-                  aria-controls="interest-detail"
-                >
-                  <span className="tag-bracket">[</span>
-                  {item.name}
-                  <span className="tag-bracket">]</span>
-                </button>
-              </li>
-            ))}
+            {t.interests.items.map((item, i) => {
+              const isActive = i === activeInterest
+              return (
+                <li key={item.name}>
+                  <button
+                    type="button"
+                    className={'tag' + (isActive ? ' is-active' : '')}
+                    onClick={() => setActiveInterest(isActive ? null : i)}
+                    aria-expanded={isActive}
+                    aria-controls="interest-detail"
+                    title={t.interests.hint}
+                  >
+                    <span className="tag-bracket">[</span>
+                    {item.name}
+                    <span className="tag-toggle" aria-hidden="true">
+                      {isActive ? '−' : '+'}
+                    </span>
+                    <span className="tag-bracket">]</span>
+                  </button>
+                </li>
+              )
+            })}
           </ul>
 
           {active && (

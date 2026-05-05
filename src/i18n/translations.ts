@@ -41,6 +41,7 @@ export interface Translations {
   interests: {
     heading: string
     label: string
+    hint: string
     empty: string
     items: { name: string; description: string }[]
   }
@@ -109,6 +110,7 @@ const en: Translations = {
   interests: {
     heading: '// interests',
     label: 'tags --list',
+    hint: 'click any item to expand',
     empty: 'soon…',
     items: [
       {
@@ -296,6 +298,7 @@ const pt: Translations = {
   interests: {
     heading: '// interesses',
     label: 'tags --list',
+    hint: 'clique em um item pra abrir',
     empty: 'em breve…',
     items: [
       {
@@ -483,6 +486,7 @@ const ru: Translations = {
   interests: {
     heading: '// интересы',
     label: 'tags --list',
+    hint: 'нажмите на пункт, чтобы развернуть',
     empty: 'скоро…',
     items: [
       {
