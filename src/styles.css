@@ -369,6 +369,21 @@ button:focus-visible {
 /* ==============================================================
    INTERESTS — bracketed monospace tags
    ============================================================== */
+.interests-hint {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--fg-dim, #888);
+  margin: 0 0 0.85rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  opacity: 0.85;
+}
+.interests-hint-prompt {
+  color: var(--accent);
+  font-weight: 700;
+}
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -394,6 +409,17 @@ button:focus-visible {
   color: var(--accent);
   font-weight: 700;
 }
+.tag-toggle {
+  color: var(--accent);
+  font-weight: 700;
+  margin-left: 2px;
+  font-size: 0.95em;
+  line-height: 1;
+  transition: transform var(--snap) steps(2, jump-none);
+}
+.tag.is-active .tag-toggle {
+  transform: rotate(180deg);
+}
 .tag:hover,
 .tag:focus-visible {
   color: #000;
@@ -402,13 +428,16 @@ button:focus-visible {
   outline: none;
 }
 .tag:hover .tag-bracket,
-.tag:focus-visible .tag-bracket { color: #000; }
+.tag:focus-visible .tag-bracket,
+.tag:hover .tag-toggle,
+.tag:focus-visible .tag-toggle { color: #000; }
 .tag.is-active {
   color: #000;
   background: var(--accent);
   border-color: var(--accent);
 }
-.tag.is-active .tag-bracket { color: #000; }
+.tag.is-active .tag-bracket,
+.tag.is-active .tag-toggle { color: #000; }
 
 .interest-detail {
   margin-top: 1.25rem;

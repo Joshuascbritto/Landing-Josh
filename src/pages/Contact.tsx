@@ -80,14 +80,15 @@ export function Contact() {
             <div className="contact-row stagger" style={styleDelay(280)}>
               <dt className="contact-key">{c.phoneLabel}</dt>
               <dd className="contact-val">
-                <button
-                  type="button"
+                <a
                   className="contact-copy"
-                  onClick={() => copy(c.phone)}
-                  title={c.phone}
+                  href={`https://wa.me/${c.phone.replace(/\D/g, '')}?text=${encodeURIComponent(c.whatsappMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={c.whatsappLabel}
                 >
                   {c.phone}
-                </button>
+                </a>
               </dd>
             </div>
 

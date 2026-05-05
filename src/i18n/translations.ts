@@ -41,6 +41,7 @@ export interface Translations {
   interests: {
     heading: string
     label: string
+    hint: string
     empty: string
     items: { name: string; description: string }[]
   }
@@ -62,6 +63,8 @@ export interface Translations {
     emailLabel: string
     phone: string
     phoneLabel: string
+    whatsappMessage: string
+    whatsappLabel: string
     linksLabel: string
     links: ContactLink[]
     closing: string
@@ -109,6 +112,7 @@ const en: Translations = {
   interests: {
     heading: '// interests',
     label: 'tags --list',
+    hint: 'click any item to expand',
     empty: 'soon…',
     items: [
       {
@@ -246,6 +250,8 @@ const en: Translations = {
     emailLabel: 'email',
     phone: '+55 (71) 99941-4107',
     phoneLabel: 'phone',
+    whatsappMessage: 'Hey! Saw your site, would love to chat.',
+    whatsappLabel: 'open whatsapp chat',
     linksLabel: 'elsewhere',
     links: [
       { label: 'github', href: 'https://github.com/Joshuascbritto' },
@@ -296,6 +302,7 @@ const pt: Translations = {
   interests: {
     heading: '// interesses',
     label: 'tags --list',
+    hint: 'clique em um item pra abrir',
     empty: 'em breve…',
     items: [
       {
@@ -433,6 +440,8 @@ const pt: Translations = {
     emailLabel: 'e-mail',
     phone: '+55 (71) 99941-4107',
     phoneLabel: 'telefone',
+    whatsappMessage: 'Olá! Vi seu site, quero conversar mais com você.',
+    whatsappLabel: 'abrir conversa no whatsapp',
     linksLabel: 'em outros lugares',
     links: [
       { label: 'github', href: 'https://github.com/Joshuascbritto' },
@@ -483,6 +492,7 @@ const ru: Translations = {
   interests: {
     heading: '// интересы',
     label: 'tags --list',
+    hint: 'нажмите на пункт, чтобы развернуть',
     empty: 'скоро…',
     items: [
       {
@@ -620,6 +630,8 @@ const ru: Translations = {
     emailLabel: 'эл. почта',
     phone: '+55 (71) 99941-4107',
     phoneLabel: 'телефон',
+    whatsappMessage: 'Привет! Видел ваш сайт, хочу пообщаться.',
+    whatsappLabel: 'открыть чат в whatsapp',
     linksLabel: 'в других местах',
     links: [
       { label: 'github', href: 'https://github.com/Joshuascbritto' },
