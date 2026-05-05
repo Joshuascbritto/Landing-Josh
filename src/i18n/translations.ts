@@ -302,7 +302,7 @@ const pt: Translations = {
   interests: {
     heading: '// interesses',
     label: 'tags --list',
-    hint: 'clique em um item pra abrir',
+    hint: 'clique em um item para expandir',
     empty: 'em breve…',
     items: [
       {
