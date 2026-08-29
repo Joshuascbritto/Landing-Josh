@@ -236,6 +236,8 @@ const en: Translations = {
     stars: 'stars',
     forks: 'forks',
     descriptions: {
+      'Jelly':
+        'Local, Claude-style AI with real access to the machine it runs on. qwen3:8b through Ollama on the GPU, plus vision, spoken conversation (Whisper in, Kokoro out), semantic search over your own files, and shell/file execution behind an approval gate that shows a diff first. Native GNOME app (GTK4 + WebKit) over a Python Starlette server.',
       'Landing-Josh':
         "The portfolio site you're looking at. Digital brutalism, dark terminal, three languages (PT/EN/RU), zero UI libs. Vite + React 18 + strict TypeScript, hand-rolled CSS.",
       'box-box':
@@ -426,6 +428,8 @@ const pt: Translations = {
     stars: 'estrelas',
     forks: 'forks',
     descriptions: {
+      'Jelly':
+        'IA local no estilo Claude, com acesso de verdade à máquina onde roda. qwen3:8b via Ollama na GPU, mais visão, conversa falada (Whisper na entrada, Kokoro na saída), busca semântica nos seus próprios arquivos e execução de comandos e arquivos atrás de uma aprovação que mostra o diff antes. App nativo do GNOME (GTK4 + WebKit) sobre servidor Starlette em Python.',
       'Landing-Josh':
         'O site de portfólio que você está vendo. Brutalismo digital, terminal escuro, três idiomas (PT/EN/RU), zero libs de UI. Vite + React 18 + TypeScript estrito, CSS na unha.',
       'box-box':
@@ -616,6 +620,8 @@ const ru: Translations = {
     stars: 'звёзд',
     forks: 'форков',
     descriptions: {
+      'Jelly':
+        'Локальный ИИ в духе Claude с настоящим доступом к машине, на которой запущен. qwen3:8b через Ollama на GPU, плюс зрение, голосовой диалог (Whisper на входе, Kokoro на выходе), семантический поиск по собственным файлам и выполнение команд и правок файлов через подтверждение, которое сначала показывает диф. Нативное приложение GNOME (GTK4 + WebKit) поверх сервера на Python (Starlette).',
       'Landing-Josh':
         'Сайт-портфолио, который вы сейчас смотрите. Цифровой брутализм, тёмный терминал, три языка (PT/EN/RU), без UI-библиотек. Vite + React 18 + строгий TypeScript, CSS вручную.',
       'box-box':
