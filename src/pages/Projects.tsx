@@ -14,6 +14,16 @@ interface Repo {
 
 const REPOS: Repo[] = [
   {
+    name: 'Jelly',
+    language: 'Python',
+    langColor: '#3572A5',
+    stars: 0,
+    forks: 0,
+    href: 'https://github.com/Joshuascbritto/Jelly',
+    liveUrl: 'https://github.com/Joshuascbritto/Jelly',
+    imgSrc: '/projects/jelly.svg',
+  },
+  {
     name: 'Landing-Josh',
     language: 'TypeScript',
     langColor: '#3178c6',

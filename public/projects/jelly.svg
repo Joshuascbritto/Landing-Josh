@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" width="480" height="280" role="img" aria-label="Jelly">
+  <defs>
+    <linearGradient id="bell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#96c1f0"/>
+      <stop offset="1" stop-color="#5c8fdd"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="280" fill="#262624"/>
+  <g transform="translate(137.6 37.6) scale(1.6)">
+    <g fill="none" stroke="#5c8fdd" stroke-width="6" stroke-linecap="round" opacity="0.8">
+      <path d="M46 68 c-2 9 4 12 2 21 c-2 8 2 11 0 17"/>
+      <path d="M64 70 c3 9 -3 13 0 22 c2 8 -2 10 0 15"/>
+      <path d="M82 68 c2 9 -4 12 -2 21 c2 8 -2 11 0 17"/>
+    </g>
+    <path d="M64 22 C42 22 28 37 28 56 v7 c0 4 3 7 7 7 h58 c4 0 7 -3 7 -7 v-7 C100 37 86 22 64 22 Z" fill="url(#bell)"/>
+    <circle cx="52" cy="53" r="4.2" fill="#262624"/>
+    <circle cx="76" cy="53" r="4.2" fill="#262624"/>
+    <path d="M58 63 q6 5 12 0" fill="none" stroke="#262624" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>
