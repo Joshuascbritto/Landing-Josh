@@ -181,20 +181,30 @@ export function About() {
             <h2 className="block-title">{t.timeline.heading}</h2>
             <span className="block-rule" aria-hidden="true" />
           </header>
-          <ol className="timeline">
-            {t.timeline.entries.map((entry, i) => (
-              <li key={i} className="timeline-row">
-                <span className="timeline-year">{entry.year}</span>
-                <div>
-                  <h3 className="timeline-title">
-                    {entry.title}
-                    <span className="timeline-place">{entry.place}</span>
-                  </h3>
-                  <p className="timeline-desc">{entry.desc}</p>
-                </div>
-              </li>
+          <div className="timeline-cols">
+            {[
+              { title: t.timeline.workLabel, entries: t.timeline.work },
+              { title: t.timeline.eduLabel, entries: t.timeline.education },
+            ].map((col) => (
+              <div key={col.title} className="timeline-col">
+                <h3 className="timeline-col-title">{col.title}</h3>
+                <ol className="timeline">
+                  {col.entries.map((entry, i) => (
+                    <li key={i} className="timeline-row">
+                      <span className="timeline-year">{entry.year}</span>
+                      <div>
+                        <h4 className="timeline-title">
+                          {entry.title}
+                          <span className="timeline-place">{entry.place}</span>
+                        </h4>
+                        <p className="timeline-desc">{entry.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
     </div>
