@@ -563,8 +563,41 @@ button:focus-visible {
   line-height: 1.6;
   max-width: 60ch;
 }
+.timeline-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 2.5rem;
+}
+.timeline-col-title {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  text-transform: lowercase;
+  margin: 0 0 0.9rem;
+}
+.timeline-col-title::before {
+  content: '// ';
+  color: var(--accent);
+}
+.timeline-cols .timeline-row {
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 0.9rem;
+  padding-left: 1.1rem;
+}
+
+@media (max-width: 860px) {
+  .timeline-cols { grid-template-columns: minmax(0, 1fr); }
+  .timeline-cols .timeline-row {
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 1.25rem;
+    padding-left: 1.5rem;
+  }
+}
+
 @media (max-width: 560px) {
-  .timeline-row {
+  .timeline-row,
+  .timeline-cols .timeline-row {
     grid-template-columns: 1fr;
     gap: 0.25rem;
   }

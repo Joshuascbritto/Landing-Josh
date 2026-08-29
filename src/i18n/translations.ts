@@ -45,7 +45,14 @@ export interface Translations {
     empty: string
     items: { name: string; description: string }[]
   }
-  timeline: { heading: string; label: string; entries: TimelineEntry[] }
+  timeline: {
+    heading: string
+    label: string
+    workLabel: string
+    eduLabel: string
+    work: TimelineEntry[]
+    education: TimelineEntry[]
+  }
   projects: {
     heading: string
     label: string
@@ -195,13 +202,9 @@ const en: Translations = {
   timeline: {
     heading: '// career',
     label: 'history --reverse',
-    entries: [
-      {
-        year: '2026',
-        title: 'Transfer to UNIFACS (Distance Learning)',
-        place: '@ UNIFACS',
-        desc: 'Switched universities in early 2026. Computer Science bachelor expected May 2027.',
-      },
+    workLabel: 'work',
+    eduLabel: 'education',
+    work: [
       {
         year: '2025',
         title: 'Hired as Developer I',
@@ -213,6 +216,14 @@ const en: Translations = {
         title: 'IT Intern',
         place: '@ FIEB',
         desc: 'Joined the Federation of Industries of Bahia in August 2023, in Salvador.',
+      },
+    ],
+    education: [
+      {
+        year: '2026',
+        title: 'Transfer to UNIFACS (Distance Learning)',
+        place: '@ UNIFACS',
+        desc: 'Switched universities in early 2026. Computer Science bachelor expected May 2027.',
       },
       {
         year: '2022',
@@ -387,13 +398,9 @@ const pt: Translations = {
   timeline: {
     heading: '// carreira',
     label: 'history --reverse',
-    entries: [
-      {
-        year: '2026',
-        title: 'Transferência pra UNIFACS EAD',
-        place: '@ UNIFACS',
-        desc: 'Mudei de faculdade no início de 2026. Bacharelado em Ciência da Computação previsto pra maio de 2027.',
-      },
+    workLabel: 'trabalho',
+    eduLabel: 'formação',
+    work: [
       {
         year: '2025',
         title: 'Contratado como Desenvolvedor I',
@@ -405,6 +412,14 @@ const pt: Translations = {
         title: 'Estagiário de TI',
         place: '@ FIEB',
         desc: 'Entrei na Federação das Indústrias do Estado da Bahia em agosto de 2023, em Salvador.',
+      },
+    ],
+    education: [
+      {
+        year: '2026',
+        title: 'Transferência pra UNIFACS EAD',
+        place: '@ UNIFACS',
+        desc: 'Mudei de faculdade no início de 2026. Bacharelado em Ciência da Computação previsto pra maio de 2027.',
       },
       {
         year: '2022',
@@ -579,13 +594,9 @@ const ru: Translations = {
   timeline: {
     heading: '// карьера',
     label: 'history --reverse',
-    entries: [
-      {
-        year: '2026',
-        title: 'Перевод в UNIFACS (дистанционное обучение)',
-        place: '@ UNIFACS',
-        desc: 'В начале 2026 перевёлся в другой вуз. Бакалавр по информатике — защита в мае 2027.',
-      },
+    workLabel: 'работа',
+    eduLabel: 'образование',
+    work: [
       {
         year: '2025',
         title: 'Стал Разработчиком I',
@@ -597,6 +608,14 @@ const ru: Translations = {
         title: 'Стажёр ИТ',
         place: '@ FIEB',
         desc: 'Пришёл в Федерацию промышленности штата Баия (Салвадор) в августе 2023.',
+      },
+    ],
+    education: [
+      {
+        year: '2026',
+        title: 'Перевод в UNIFACS (дистанционное обучение)',
+        place: '@ UNIFACS',
+        desc: 'В начале 2026 перевёлся в другой вуз. Бакалавр по информатике — защита в мае 2027.',
       },
       {
         year: '2022',
