@@ -1,7 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from '../i18n/LanguageContext'
+import type { Translations } from '../i18n/translations'
 
 const styleDelay = (ms: number) => ({ animationDelay: `${ms}ms` })
+
+// Merges both career tracks into one chronological list (newest first) so the
+// two columns share the same rows — a year on the left always sits above an
+// earlier year on the right.
+function timelineRows(timeline: Translations['timeline']) {
+  return [
+    ...timeline.work.map((e) => ({ ...e, isWork: true })),
+    ...timeline.education.map((e) => ({ ...e, isWork: false })),
+  ].sort((a, b) => Number(b.year) - Number(a.year))
+}
 
 // PLACEHOLDER: lista de linguagens. Remova as que você não usa de fato.
 // Cores seguem o padrão linguist do GitHub (mesmo usado em Projects.tsx).
@@ -181,30 +192,33 @@ export function About() {
             <h2 className="block-title">{t.timeline.heading}</h2>
             <span className="block-rule" aria-hidden="true" />
           </header>
-          <div className="timeline-cols">
-            {[
-              { title: t.timeline.workLabel, entries: t.timeline.work },
-              { title: t.timeline.eduLabel, entries: t.timeline.education },
-            ].map((col) => (
-              <div key={col.title} className="timeline-col">
-                <h3 className="timeline-col-title">{col.title}</h3>
-                <ol className="timeline">
-                  {col.entries.map((entry, i) => (
-                    <li key={i} className="timeline-row">
-                      <span className="timeline-year">{entry.year}</span>
-                      <div>
-                        <h4 className="timeline-title">
-                          {entry.title}
-                          <span className="timeline-place">{entry.place}</span>
-                        </h4>
-                        <p className="timeline-desc">{entry.desc}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            ))}
+          <div className="timeline-heads">
+            <h3 className="timeline-col-title">{t.timeline.workLabel}</h3>
+            <h3 className="timeline-col-title">{t.timeline.eduLabel}</h3>
           </div>
+          <ol className="timeline-grid">
+            <li className="timeline-rail" aria-hidden="true" />
+            <li className="timeline-rail" aria-hidden="true" />
+            {timelineRows(t.timeline).map((row, i) => (
+              <li
+                key={`${row.year}-${row.title}`}
+                className="timeline-row"
+                style={{ gridRow: i + 1, gridColumn: row.isWork ? 1 : 2 }}
+              >
+                <span className="timeline-year">{row.year}</span>
+                <div>
+                  <span className="timeline-track">
+                    {row.isWork ? t.timeline.workLabel : t.timeline.eduLabel}
+                  </span>
+                  <h4 className="timeline-title">
+                    {row.title}
+                    <span className="timeline-place">{row.place}</span>
+                  </h4>
+                  <p className="timeline-desc">{row.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
     </div>
