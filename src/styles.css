@@ -563,32 +563,63 @@ button:focus-visible {
   line-height: 1.6;
   max-width: 60ch;
 }
-.timeline-cols {
+/* Two career tracks on one chronological grid: every entry gets its own row,
+   ordered newest first, and sits in the column matching its track. */
+.timeline-heads,
+.timeline-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem 2.5rem;
+  column-gap: 2.5rem;
+  margin-left: 6px;
 }
+.timeline-heads { margin-bottom: 0.9rem; }
 .timeline-col-title {
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   color: var(--mute);
   text-transform: lowercase;
-  margin: 0 0 0.9rem;
+  margin: 0;
 }
 .timeline-col-title::before {
   content: '// ';
   color: var(--accent);
 }
-.timeline-cols .timeline-row {
+/* Full-height rules behind each column, so the line never breaks between rows. */
+.timeline-rail {
+  grid-row: 1 / -1;
+  border-left: 1px solid var(--accent);
+  padding: 0;
+}
+.timeline-rail:nth-of-type(1) { grid-column: 1; }
+.timeline-rail:nth-of-type(2) { grid-column: 2; }
+.timeline-grid .timeline-row {
   grid-template-columns: 64px minmax(0, 1fr);
   gap: 0.9rem;
   padding-left: 1.1rem;
 }
 
+/* Track label rides along each entry; only shown once the columns collapse
+   and the headings above them are gone. */
+.timeline-track { display: none; }
+
 @media (max-width: 860px) {
-  .timeline-cols { grid-template-columns: minmax(0, 1fr); }
-  .timeline-cols .timeline-row {
+  .timeline-heads { display: none; }
+  .timeline-track {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
+    color: var(--mute);
+    border: 1px solid var(--line-2);
+    padding: 1px 6px;
+    margin-bottom: 0.35rem;
+  }
+  .timeline-grid { grid-template-columns: minmax(0, 1fr); }
+  .timeline-rail:nth-of-type(2) { display: none; }
+  .timeline-grid .timeline-row {
+    grid-column: 1 !important;
     grid-template-columns: 110px minmax(0, 1fr);
     gap: 1.25rem;
     padding-left: 1.5rem;
@@ -597,7 +628,7 @@ button:focus-visible {
 
 @media (max-width: 560px) {
   .timeline-row,
-  .timeline-cols .timeline-row {
+  .timeline-grid .timeline-row {
     grid-template-columns: 1fr;
     gap: 0.25rem;
   }
