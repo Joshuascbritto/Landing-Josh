@@ -510,69 +510,19 @@ button:focus-visible {
 }
 
 /* ==============================================================
-   TIMELINE — vertical accent rail with hard markers
+   TIMELINE — central year axis, work on the left, study on the right
    ============================================================== */
-.timeline {
-  border-left: 1px solid var(--accent);
-  margin-left: 6px;
-}
-.timeline-row {
+.timeline-axis-heads,
+.timeline-axis {
   display: grid;
-  grid-template-columns: 110px minmax(0, 1fr);
-  gap: 1.25rem;
-  padding: 0.35rem 0 1.5rem 1.5rem;
-  position: relative;
-  transition: background var(--snap) steps(2, jump-none);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  column-gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: start;
 }
-.timeline-row::before {
-  content: '';
-  position: absolute;
-  left: -5px;
-  top: 0.85rem;
-  width: 9px;
-  height: 9px;
-  background: var(--bg);
-  border: 1px solid var(--accent);
-  transition: background var(--snap) steps(2, jump-none);
-}
-.timeline-row:hover::before { background: var(--accent); }
-.timeline-year {
-  font-family: var(--mono);
-  font-size: 0.95rem;
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-.timeline-title {
-  font-family: var(--mono);
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: var(--fg);
-  margin: 0 0 0.25rem;
-  letter-spacing: 0.005em;
-}
-.timeline-place {
-  color: var(--mute);
-  font-weight: 400;
-  margin-left: 0.35rem;
-}
-.timeline-desc {
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  color: var(--mute);
-  line-height: 1.6;
-  max-width: 60ch;
-}
-/* Two career tracks on one chronological grid: every entry gets its own row,
-   ordered newest first, and sits in the column matching its track. */
-.timeline-heads,
-.timeline-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 2.5rem;
-  margin-left: 6px;
-}
-.timeline-heads { margin-bottom: 0.9rem; }
+.timeline-axis-heads { margin-bottom: 1.1rem; }
+.timeline-axis-heads > :first-child { text-align: right; }
+.timeline-axis-heads > :last-child  { text-align: left; }
+
 .timeline-col-title {
   font-family: var(--mono);
   font-size: 0.72rem;
@@ -585,26 +535,92 @@ button:focus-visible {
   content: '// ';
   color: var(--accent);
 }
-/* Full-height rules behind each column, so the line never breaks between rows. */
-.timeline-rail {
+
+/* One continuous rule down the middle; the year chips sit on top of it. */
+.timeline-axis-rail {
+  grid-column: 2;
   grid-row: 1 / -1;
-  border-left: 1px solid var(--accent);
+  justify-self: center;
+  width: 0;
   padding: 0;
+  border-left: 1px solid var(--accent);
 }
-.timeline-rail:nth-of-type(1) { grid-column: 1; }
-.timeline-rail:nth-of-type(2) { grid-column: 2; }
-.timeline-grid .timeline-row {
-  grid-template-columns: 64px minmax(0, 1fr);
-  gap: 0.9rem;
-  padding-left: 1.1rem;
+.timeline-axis-year {
+  grid-column: 2;
+  justify-self: center;
+  position: relative;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  background: var(--bg);
+  border: 1px solid var(--line-2);
+  padding: 3px 9px;
+  transition: border-color var(--snap) steps(2, jump-none),
+              background var(--snap) steps(2, jump-none);
+}
+.timeline-axis-year:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
 }
 
-/* Track label rides along each entry; only shown once the columns collapse
-   and the headings above them are gone. */
+.timeline-entry {
+  padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  min-width: 0;
+}
+.timeline-entry[data-track='work'] {
+  grid-column: 1;
+  text-align: right;
+}
+.timeline-entry[data-track='edu'] {
+  grid-column: 3;
+  text-align: left;
+}
+
+.timeline-title {
+  font-family: var(--mono);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 0 0 0.3rem;
+  letter-spacing: 0.005em;
+}
+.timeline-place {
+  color: var(--mute);
+  font-weight: 400;
+  margin-left: 0.35rem;
+}
+.timeline-desc {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--mute);
+  line-height: 1.6;
+  max-width: 46ch;
+  margin: 0;
+}
+.timeline-entry[data-track='work'] .timeline-desc { margin-left: auto; }
+
+/* Track label rides along each entry; only shown once the axis moves aside
+   and the headings above the columns are gone. */
 .timeline-track { display: none; }
 
+/* Single column: the axis moves to the left edge, every entry hangs off it. */
 @media (max-width: 860px) {
-  .timeline-heads { display: none; }
+  .timeline-axis-heads { display: none; }
+  .timeline-axis {
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 1.1rem;
+  }
+  .timeline-axis-rail { grid-column: 1; }
+  .timeline-axis-year { grid-column: 1; }
+  .timeline-entry[data-track='work'],
+  .timeline-entry[data-track='edu'] {
+    grid-column: 2;
+    text-align: left;
+  }
+  .timeline-entry[data-track='work'] .timeline-desc { margin-left: 0; }
+  .timeline-desc { max-width: 60ch; }
   .timeline-track {
     display: inline-block;
     font-family: var(--mono);
@@ -614,23 +630,7 @@ button:focus-visible {
     color: var(--mute);
     border: 1px solid var(--line-2);
     padding: 1px 6px;
-    margin-bottom: 0.35rem;
-  }
-  .timeline-grid { grid-template-columns: minmax(0, 1fr); }
-  .timeline-rail:nth-of-type(2) { display: none; }
-  .timeline-grid .timeline-row {
-    grid-column: 1 !important;
-    grid-template-columns: 110px minmax(0, 1fr);
-    gap: 1.25rem;
-    padding-left: 1.5rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .timeline-row,
-  .timeline-grid .timeline-row {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
+    margin-bottom: 0.4rem;
   }
 }
 
