@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { useTranslation } from '../i18n/LanguageContext'
 import type { Translations } from '../i18n/translations'
 
@@ -192,21 +192,20 @@ export function About() {
             <h2 className="block-title">{t.timeline.heading}</h2>
             <span className="block-rule" aria-hidden="true" />
           </header>
-          <div className="timeline-heads">
+          <div className="timeline-axis-heads">
             <h3 className="timeline-col-title">{t.timeline.workLabel}</h3>
+            <span aria-hidden="true" />
             <h3 className="timeline-col-title">{t.timeline.eduLabel}</h3>
           </div>
-          <ol className="timeline-grid">
-            <li className="timeline-rail" aria-hidden="true" />
-            <li className="timeline-rail" aria-hidden="true" />
+          <ol className="timeline-axis">
+            <li className="timeline-axis-rail" aria-hidden="true" />
             {timelineRows(t.timeline).map((row, i) => (
-              <li
-                key={`${row.year}-${row.title}`}
-                className="timeline-row"
-                style={{ gridRow: i + 1, gridColumn: row.isWork ? 1 : 2 }}
-              >
-                <span className="timeline-year">{row.year}</span>
-                <div>
+              <Fragment key={`${row.year}-${row.title}`}>
+                <li
+                  className="timeline-entry"
+                  data-track={row.isWork ? 'work' : 'edu'}
+                  style={{ gridRow: i + 1 }}
+                >
                   <span className="timeline-track">
                     {row.isWork ? t.timeline.workLabel : t.timeline.eduLabel}
                   </span>
@@ -215,8 +214,11 @@ export function About() {
                     <span className="timeline-place">{row.place}</span>
                   </h4>
                   <p className="timeline-desc">{row.desc}</p>
-                </div>
-              </li>
+                </li>
+                <li className="timeline-axis-year" style={{ gridRow: i + 1 }}>
+                  {row.year}
+                </li>
+              </Fragment>
             ))}
           </ol>
         </div>
