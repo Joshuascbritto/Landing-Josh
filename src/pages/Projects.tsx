@@ -30,7 +30,7 @@ const REPOS: Repo[] = [
     stars: 0,
     forks: 0,
     href: 'https://github.com/Joshuascbritto/Landing-Josh',
-    liveUrl: 'https://landing-josh.vercel.app',
+    liveUrl: 'https://github.com/Joshuascbritto/Landing-Josh',
     imgSrc: '/projects/landing-josh.png',
   },
   {
