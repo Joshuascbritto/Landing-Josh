@@ -270,7 +270,7 @@ const en: Translations = {
     linksLabel: 'elsewhere',
     links: [
       { label: 'github', href: 'https://github.com/Joshuascbritto' },
-      { label: 'linkedin', href: 'https://www.linkedin.com/in/joshua-britto-143577297/' },
+      { label: 'linkedin', href: 'https://www.linkedin.com/in/joshuastrauch/' },
     ],
     closing: 'I prefer email. I respond within 24 hours, usually faster.',
     copied: 'copied',
@@ -468,7 +468,7 @@ const pt: Translations = {
     linksLabel: 'em outros lugares',
     links: [
       { label: 'github', href: 'https://github.com/Joshuascbritto' },
-      { label: 'linkedin', href: 'https://www.linkedin.com/in/joshua-britto-143577297/' },
+      { label: 'linkedin', href: 'https://www.linkedin.com/in/joshuastrauch/' },
     ],
     closing: 'Prefiro e-mail. Respondo em até 24 horas, normalmente bem mais rápido.',
     copied: 'copiado',
@@ -666,7 +666,7 @@ const ru: Translations = {
     linksLabel: 'в других местах',
     links: [
       { label: 'github', href: 'https://github.com/Joshuascbritto' },
-      { label: 'linkedin', href: 'https://www.linkedin.com/in/joshua-britto-143577297/' },
+      { label: 'linkedin', href: 'https://www.linkedin.com/in/joshuastrauch/' },
     ],
     closing: 'Предпочитаю электронную почту. Отвечаю в течение 24 часов, обычно гораздо быстрее.',
     copied: 'скопировано',
