@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" width="480" height="280" role="img" aria-label="Waitless">
+  <rect width="480" height="280" fill="#262624"/>
+  <!-- the line: people waiting, the next one highlighted -->
+  <g fill="#5c5b56">
+    <circle cx="74" cy="118" r="13"/><rect x="58" y="136" width="32" height="40" rx="10"/>
+    <circle cx="124" cy="118" r="13"/><rect x="108" y="136" width="32" height="40" rx="10"/>
+    <circle cx="174" cy="118" r="13"/><rect x="158" y="136" width="32" height="40" rx="10"/>
+  </g>
+  <g fill="#1baf7a">
+    <circle cx="224" cy="118" r="13"/><rect x="208" y="136" width="32" height="40" rx="10"/>
+  </g>
+  <path d="M258 146 h30 m-10 -10 l10 10 l-10 10" fill="none" stroke="#1baf7a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- the phone with the ticket -->
+  <rect x="312" y="52" width="112" height="184" rx="16" fill="#f0efec"/>
+  <rect x="324" y="74" width="88" height="56" rx="8" fill="#1baf7a"/>
+  <text x="368" y="110" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="22" font-weight="700" fill="#fff">A-023</text>
+  <text x="368" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#262624">It's your turn!</text>
+  <rect x="330" y="172" width="76" height="8" rx="4" fill="#c3c2b7"/>
+  <rect x="340" y="188" width="56" height="8" rx="4" fill="#c3c2b7"/>
+  <circle cx="368" cy="218" r="5" fill="#1baf7a"/>
+</svg>
