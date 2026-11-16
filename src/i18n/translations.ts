@@ -247,6 +247,8 @@ const en: Translations = {
     stars: 'stars',
     forks: 'forks',
     descriptions: {
+      'Waitless':
+        'Virtual queue for small businesses: customers scan a QR code, join from their phone, watch their place update live and get a push notification when it\'s their turn. Multi-tenant with Postgres row-level security, Server-Sent Events fanned out across API replicas through Redis, concurrency-safe "call next" with SKIP LOCKED. Next.js + Fastify + BullMQ, Playwright e2e, Kubernetes (k3s + Kustomize).',
       'Jelly':
         'Local, Claude-style AI with real access to the machine it runs on. qwen3:8b through Ollama on the GPU, plus vision, spoken conversation (Whisper in, Kokoro out), semantic search over your own files, and shell/file execution behind an approval gate that shows a diff first. Native GNOME app (GTK4 + WebKit) over a Python Starlette server.',
       'Landing-Josh':
@@ -443,6 +445,8 @@ const pt: Translations = {
     stars: 'estrelas',
     forks: 'forks',
     descriptions: {
+      'Waitless':
+        'Fila virtual para pequenos negócios: o cliente escaneia um QR code, entra na fila pelo celular, vê a posição atualizar ao vivo e recebe uma notificação quando chega a vez. Multi-tenant com row-level security no Postgres, Server-Sent Events distribuídos entre réplicas da API via Redis, "chamar próximo" seguro sob concorrência com SKIP LOCKED. Next.js + Fastify + BullMQ, e2e com Playwright, Kubernetes (k3s + Kustomize).',
       'Jelly':
         'IA local no estilo Claude, com acesso de verdade à máquina onde roda. qwen3:8b via Ollama na GPU, mais visão, conversa falada (Whisper na entrada, Kokoro na saída), busca semântica nos seus próprios arquivos e execução de comandos e arquivos atrás de uma aprovação que mostra o diff antes. App nativo do GNOME (GTK4 + WebKit) sobre servidor Starlette em Python.',
       'Landing-Josh':
@@ -639,6 +643,8 @@ const ru: Translations = {
     stars: 'звёзд',
     forks: 'форков',
     descriptions: {
+      'Waitless':
+        'Виртуальная очередь для малого бизнеса: клиент сканирует QR-код, встаёт в очередь с телефона, видит своё место в реальном времени и получает push-уведомление, когда подходит его очередь. Мультитенантность на row-level security в Postgres, Server-Sent Events с рассылкой между репликами API через Redis, безопасный при конкуренции «вызвать следующего» на SKIP LOCKED. Next.js + Fastify + BullMQ, e2e на Playwright, Kubernetes (k3s + Kustomize).',
       'Jelly':
         'Локальный ИИ в духе Claude с настоящим доступом к машине, на которой запущен. qwen3:8b через Ollama на GPU, плюс зрение, голосовой диалог (Whisper на входе, Kokoro на выходе), семантический поиск по собственным файлам и выполнение команд и правок файлов через подтверждение, которое сначала показывает диф. Нативное приложение GNOME (GTK4 + WebKit) поверх сервера на Python (Starlette).',
       'Landing-Josh':

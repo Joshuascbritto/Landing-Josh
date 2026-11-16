@@ -14,6 +14,16 @@ interface Repo {
 
 const REPOS: Repo[] = [
   {
+    name: 'Waitless',
+    language: 'TypeScript',
+    langColor: '#3178c6',
+    stars: 0,
+    forks: 0,
+    href: 'https://github.com/Joshuascbritto/waitless',
+    liveUrl: 'https://github.com/Joshuascbritto/waitless',
+    imgSrc: '/projects/waitless.svg',
+  },
+  {
     name: 'Jelly',
     language: 'Python',
     langColor: '#3572A5',
