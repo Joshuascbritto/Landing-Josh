@@ -123,6 +123,11 @@ const en: Translations = {
     empty: 'soon…',
     items: [
       {
+        name: 'My Love',
+        description:
+          "Luisa, my girlfriend and future wife. She's in physiotherapy, and she's the reason I wrote software for a real problem for the first time: the apps for her telerehab research were born right here. She's who I share coffee with, make things out of clay and paint with, and have my best moments with.",
+      },
+      {
         name: 'Systems Programming',
         description:
           "My first contact with programming and the command line was through Minecraft, back when I was a kid. To get the game running I had to chain a bunch of commands and tweak things until something worked, and to play with friends I had to figure out IPs and mod versioning. I learned the hard way, before I knew any of it had a name.",
@@ -320,6 +325,11 @@ const pt: Translations = {
     hint: 'clique em um item pra abrir',
     empty: 'em breve…',
     items: [
+      {
+        name: 'Meu Amor',
+        description:
+          'Luisa, minha namorada e futura esposa. Ela é de fisioterapia, e foi por ela que escrevi software pra um problema de verdade pela primeira vez: os apps da pesquisa de telerreabilitação dela nasceram aqui. É com ela que divido o café, faço coisas com argila e tinta e tenho os meus melhores momentos.',
+      },
       {
         name: 'Programação de Sistemas',
         description:
