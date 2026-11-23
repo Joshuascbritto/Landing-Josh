@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Joshua Strauch — Resume</title>
+<link rel="stylesheet" href="resume.css" />
+<style>@page { size: Letter; }</style>
+</head>
+<body>
+<header>
+  <h1>Joshua Strauch</h1>
+  <p class="role">Full-Stack Software Engineer · PHP · Python · C#/.NET · SQL · DevOps</p>
+  <p class="contact">Salvador, Brazil · UTC-3 (1–2 h from US Eastern) · Open to remote · joshuascbritto@gmail.com · +55 71 99941-4107</p>
+  <p class="contact">joshuastrauch.com.br · github.com/Joshuascbritto · linkedin.com/in/joshuastrauch</p>
+</header>
+
+<h2>Summary</h2>
+<p>Full-stack developer with 2+ years in software development and 3+ years at FIEB, building and maintaining production systems used across FIEB, SESI and SENAI in C#/.NET, PHP, Python and SQL. Started in networks and infrastructure, so I debug below the application layer, and I run my own projects end to end with Docker, Kubernetes and CI. Fluent in English; seeking a remote role with a US, Canadian or European team.</p>
+
+<h2>Experience</h2>
+<div class="entry">
+  <div class="entry-head"><strong>Software Developer I — FIEB (Federation of Industries of the State of Bahia)</strong><span>Sep 2025 – Present</span></div>
+  <ul>
+    <li>Maintain and ship features for several production systems used across FIEB, SESI and SENAI, in C#/.NET, PHP, Python and SQL</li>
+    <li>Fully refactored SGC, an internal management system</li>
+    <li>Building the new public transparency portal for SESI and SENAI</li>
+    <li>Own changes end to end, from database and back end to front end and deployment</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="entry-head"><strong>Software Development Intern — FIEB</strong><span>Aug 2024 – Jul 2025</span></div>
+  <ul>
+    <li>Moved from infrastructure into development, working as a de facto junior developer on internal C#/.NET web systems</li>
+    <li>Worked on both front end and back end of the SESI/SENAI transparency portal; fixed bugs, wrote tests and handled data in SQL</li>
+    <li>Hired full-time as Software Developer I at the end of the internship</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="entry-head"><strong>IT Infrastructure &amp; Helpdesk Intern — FIEB</strong><span>Aug 2023 – Jul 2024</span></div>
+  <ul>
+    <li>Tier 1/Tier 2 support for internal users; maintained hardware, networks and workstations (Active Directory, Windows)</li>
+  </ul>
+</div>
+
+<h2>Projects</h2>
+<div class="entry">
+  <div class="entry-head"><strong>Waitless — virtual queue for small businesses</strong><span>github.com/Joshuascbritto/waitless</span></div>
+  <p class="entry-sub">TypeScript · Next.js · Fastify · PostgreSQL · Redis · BullMQ · Docker · Kubernetes</p>
+  <ul>
+    <li>Multi-tenant isolation enforced by PostgreSQL row-level security, fail-closed; concurrency-safe "call next" with <code>FOR UPDATE SKIP LOCKED</code> (20 parallel calls on 10 customers: 10 called, 0 duplicates, 0 errors)</li>
+    <li>Live updates over Server-Sent Events, fanned out across API replicas with Redis pub/sub; idempotent Web Push and delayed jobs on BullMQ</li>
+    <li>CI on GitHub Actions (lint, typecheck, Testcontainers integration tests, Playwright e2e); images on GHCR; staged Kubernetes deploy (k3s + Kustomize) with non-root pods and Prometheus metrics</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="entry-head"><strong>Cardio Telerehab — clinical software for cardiovascular physiotherapy</strong><span>private repository</span></div>
+  <p class="entry-sub">PHP · Laravel 11 · PostgreSQL (Supabase) · Tailwind · Vercel</p>
+  <ul>
+    <li>Built with a physiotherapy researcher; live and under clinical validation</li>
+    <li>Rules engine classifies cardiovascular risk and computes an aerobic exercise prescription from test results; role-based portals for physiotherapists and patients</li>
+    <li>Companion bedside tool computes VO₂, METs and % predicted, with digital consent, usability surveys (SUS) and anonymized CSV export for statistical analysis</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="entry-head"><strong>Jelly — local AI assistant</strong><span>github.com/Joshuascbritto/Jelly</span></div>
+  <p class="entry-sub">Python · Starlette · Ollama · Whisper · GTK4</p>
+  <ul>
+    <li>Runs qwen3:8b on the local GPU with vision, voice chat (Whisper in, Kokoro out) and semantic search over local files</li>
+    <li>Runs shell commands and file edits only after the user approves a diff</li>
+  </ul>
+</div>
+
+<h2>Technical Skills</h2>
+<div class="skills">
+  <p><b>Languages</b>PHP, Python, C#, SQL, TypeScript, JavaScript; familiar with Shell, C, C++, Rust</p>
+  <p><b>Back end</b>.NET, Laravel, Fastify, REST APIs, Server-Sent Events, BullMQ</p>
+  <p><b>Front end</b>React, Next.js, Vite, Tailwind, HTML, CSS</p>
+  <p><b>DevOps</b>Docker, Kubernetes (k3s, Kustomize), GitHub Actions, Linux, Git, Vercel, Prometheus</p>
+  <p><b>Data</b>PostgreSQL (row-level security), Redis, Supabase, SQLite</p>
+  <p><b>Testing</b>Playwright, Testcontainers, PHPUnit, Pest</p>
+  <p><b>Spoken</b>Portuguese (native), English (fluent), Russian (learning)</p>
+</div>
+
+<h2>Education</h2>
+<div class="entry-head"><span style="color:#111">B.S. in Computer Science — UNIFACS (transferred from Universidade Jorge Amado, 2022–2025)</span><span>Expected 2027</span></div>
+<div class="entry-head"><span style="color:#111">Technical Degree in Computer Networks — SENAI CIMATEC</span><span>2021 – 2023</span></div>
+
+</body>
+</html>

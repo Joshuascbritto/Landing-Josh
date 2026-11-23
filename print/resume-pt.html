@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Joshua Strauch — Currículo</title>
+<link rel="stylesheet" href="resume.css" />
+<style>@page { size: A4; }</style>
+</head>
+<body>
+<header>
+  <h1>Joshua Strauch</h1>
+  <p class="role">Engenheiro de Software Full-Stack · PHP · Python · C#/.NET · SQL · DevOps</p>
+  <p class="contact">Salvador, BA · UTC-3 · Aberto a vagas remotas · joshuascbritto@gmail.com · (71) 99941-4107</p>
+  <p class="contact">joshuastrauch.com.br · github.com/Joshuascbritto · linkedin.com/in/joshuastrauch</p>
+</header>
+
+<h2>Resumo</h2>
+<p>Desenvolvedor full-stack com mais de 2 anos em desenvolvimento de software e mais de 3 anos na FIEB, construindo e mantendo sistemas em produção usados pela FIEB, SESI e SENAI com C#/.NET, PHP, Python e SQL. Vim de redes e infraestrutura: depuro abaixo da camada da aplicação e levo meus projetos de ponta a ponta com Docker, Kubernetes e CI.</p>
+
+<h2>Experiência</h2>
+<div class="entry">
+  <div class="entry-head"><strong>Desenvolvedor de Software I — FIEB (Federação das Indústrias do Estado da Bahia)</strong><span>set/2025 – atual</span></div>
+  <ul>
+    <li>Mantenho e entrego funcionalidades em vários sistemas em produção usados pela FIEB, SESI e SENAI, com C#/.NET, PHP, Python e SQL</li>
+    <li>Refatorei por completo o SGC, um sistema interno de gestão</li>
+    <li>Desenvolvo o novo portal de transparência do SESI e do SENAI</li>
+    <li>Assumo as mudanças de ponta a ponta: banco de dados, back-end, front-end e deploy</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="entry-head"><strong>Estagiário de Desenvolvimento — FIEB</strong><span>ago/2024 – jul/2025</span></div>
+  <ul>
+    <li>Migrei da infraestrutura para o desenvolvimento, atuando na prática como desenvolvedor júnior em sistemas web internos em C#/.NET</li>
+    <li>Atuei no front-end e no back-end do portal de transparência do SESI/SENAI; corrigi bugs, escrevi testes e tratei dados em SQL</li>
+    <li>Efetivado como Desenvolvedor de Software I ao fim do estágio</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="entry-head"><strong>Estagiário de Infraestrutura e Helpdesk — FIEB</strong><span>ago/2023 – jul/2024</span></div>
+  <ul>
+    <li>Suporte nível 1 e 2 a usuários internos; manutenção de hardware, redes e estações de trabalho (Active Directory, Windows)</li>
+  </ul>
+</div>
+
+<h2>Projetos</h2>
+<div class="entry">
+  <div class="entry-head"><strong>Waitless — fila virtual para pequenos negócios</strong><span>github.com/Joshuascbritto/waitless</span></div>
+  <p class="entry-sub">TypeScript · Next.js · Fastify · PostgreSQL · Redis · BullMQ · Docker · Kubernetes</p>
+  <ul>
+    <li>Isolamento multi-tenant garantido por row-level security no PostgreSQL, fechado por padrão; "chamar próximo" seguro sob concorrência com <code>FOR UPDATE SKIP LOCKED</code> (20 chamadas paralelas para 10 clientes: 10 chamados, 0 duplicados, 0 erros)</li>
+    <li>Atualizações ao vivo via Server-Sent Events, distribuídas entre réplicas da API com Redis pub/sub; Web Push e jobs agendados idempotentes no BullMQ</li>
+    <li>CI no GitHub Actions (lint, typecheck, testes de integração com Testcontainers, e2e com Playwright); imagens no GHCR; deploy em etapas no Kubernetes (k3s + Kustomize) com pods non-root e métricas Prometheus</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="entry-head"><strong>Cardio Telerreab — software clínico para fisioterapia cardiovascular</strong><span>repositório privado</span></div>
+  <p class="entry-sub">PHP · Laravel 11 · PostgreSQL (Supabase) · Tailwind · Vercel</p>
+  <ul>
+    <li>Feito junto com uma pesquisadora de fisioterapia; no ar e em validação clínica</li>
+    <li>Motor de regras classifica o risco cardiovascular e calcula a prescrição de exercício aeróbico a partir dos testes; portais por perfil para fisioterapeutas e pacientes</li>
+    <li>Ferramenta de beira de leito calcula VO₂, MET e % do predito, com TCLE digital, questionário SUS e exportação anonimizada em CSV</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="entry-head"><strong>Jelly — assistente de IA local</strong><span>github.com/Joshuascbritto/Jelly</span></div>
+  <p class="entry-sub">Python · Starlette · Ollama · Whisper · GTK4</p>
+  <ul>
+    <li>Roda qwen3:8b na GPU local, com visão, conversa por voz (Whisper na entrada, Kokoro na saída) e busca semântica nos arquivos do usuário</li>
+    <li>Executa comandos e edições de arquivo só depois que o usuário aprova o diff</li>
+  </ul>
+</div>
+
+<h2>Habilidades Técnicas</h2>
+<div class="skills">
+  <p><b>Linguagens</b>PHP, Python, C#, SQL, TypeScript, JavaScript; familiaridade com Shell, C, C++, Rust</p>
+  <p><b>Back-end</b>.NET, Laravel, Fastify, APIs REST, Server-Sent Events, BullMQ</p>
+  <p><b>Front-end</b>React, Next.js, Vite, Tailwind, HTML, CSS</p>
+  <p><b>DevOps</b>Docker, Kubernetes (k3s, Kustomize), GitHub Actions, Linux, Git, Vercel, Prometheus</p>
+  <p><b>Dados</b>PostgreSQL (row-level security), Redis, Supabase, SQLite</p>
+  <p><b>Testes</b>Playwright, Testcontainers, PHPUnit, Pest</p>
+  <p><b>Idiomas</b>Português (nativo), Inglês (fluente), Russo (básico, em estudo)</p>
+</div>
+
+<h2>Formação</h2>
+<div class="entry-head"><span style="color:#111">Bacharelado em Ciência da Computação — UNIFACS (transferido da Universidade Jorge Amado, 2022–2025)</span><span>previsão 2027</span></div>
+<div class="entry-head"><span style="color:#111">Técnico em Redes de Computadores — SENAI CIMATEC</span><span>2021 – 2023</span></div>
+
+</body>
+</html>

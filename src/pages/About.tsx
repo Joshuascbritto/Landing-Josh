@@ -14,29 +14,88 @@ function timelineRows(timeline: Translations['timeline']) {
   ].sort((a, b) => Number(b.year) - Number(a.year))
 }
 
-// PLACEHOLDER: lista de linguagens. Remova as que você não usa de fato.
-// Cores seguem o padrão linguist do GitHub (mesmo usado em Projects.tsx).
-interface Lang {
+// Skills split by how much evidence backs them: "proficient" = used at work or
+// in a shipped project; "familiar" = studied, no project to point at yet.
+// Group keys (lang/fw/devops/data) are code-style labels, not translated.
+// Dot colors follow GitHub linguist (same palette as Projects.tsx).
+interface Skill {
   name: string
-  color: string
+  color?: string
 }
 
-const LANGS: Lang[] = [
-  { name: 'PHP',        color: '#4F5D95' },
-  { name: 'Python',     color: '#3572A5' },
-  { name: 'TypeScript', color: '#3178c6' },
-  { name: 'JavaScript', color: '#f1e05a' },
-  { name: 'Rust',       color: '#dea584' },
-  { name: 'C',          color: '#555555' },
-  { name: 'C++',        color: '#f34b7d' },
-  { name: 'C#',         color: '#178600' },
-  { name: 'Shell',      color: '#89e051' },
-  { name: 'SQL',        color: '#e38c00' },
+interface SkillGroup {
+  key: string
+  items: Skill[]
+}
+
+const PROFICIENT: SkillGroup[] = [
+  {
+    key: 'lang',
+    items: [
+      { name: 'PHP',        color: '#4F5D95' },
+      { name: 'Python',     color: '#3572A5' },
+      { name: 'C#',         color: '#178600' },
+      { name: 'SQL',        color: '#e38c00' },
+      { name: 'TypeScript', color: '#3178c6' },
+      { name: 'JavaScript', color: '#f1e05a' },
+    ],
+  },
+  {
+    key: 'fw',
+    items: [{ name: '.NET' }, { name: 'Laravel' }, { name: 'React' }, { name: 'Next.js' }, { name: 'Fastify' }],
+  },
+  {
+    key: 'devops',
+    items: [{ name: 'Docker' }, { name: 'Kubernetes (k3s)' }, { name: 'Linux' }, { name: 'Git' }, { name: 'Vercel' }],
+  },
+  {
+    key: 'data',
+    items: [{ name: 'PostgreSQL' }, { name: 'Redis' }, { name: 'Supabase' }],
+  },
 ]
+
+const FAMILIAR: SkillGroup[] = [
+  {
+    key: 'lang',
+    items: [
+      { name: 'Shell', color: '#89e051' },
+      { name: 'C',     color: '#555555' },
+      { name: 'C++',   color: '#f34b7d' },
+      { name: 'Rust',  color: '#dea584' },
+    ],
+  },
+]
+
+// Interests beyond this count sit behind a "show all" toggle.
+const INTERESTS_VISIBLE = 6
+
+function SkillTier({ label, groups }: { label: string; groups: SkillGroup[] }) {
+  return (
+    <div className="skill-tier">
+      <h3 className="skill-tier-title">{label}</h3>
+      {groups.map((g) => (
+        <div key={g.key} className="skill-row">
+          <span className="skill-key">{g.key}</span>
+          <ul className="langs">
+            {g.items.map((l) => (
+              <li key={l.name} className="lang-cell">
+                {l.color && (
+                  <span className="lang-dot" style={{ background: l.color }} aria-hidden="true" />
+                )}
+                {l.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export function About() {
   const { t, locale } = useTranslation()
   const [activeInterest, setActiveInterest] = useState<number | null>(null)
+  const [showAllInterests, setShowAllInterests] = useState(false)
 
   // Reset selection when locale changes — items array reorders are unlikely
   // but the description text would otherwise mismatch the highlighted tag.
@@ -69,6 +128,9 @@ export function About() {
           <span className="hero-arrow" aria-hidden="true">›</span>
           {t.hero.subtitle}
         </div>
+        <div className="hero-stack stagger" style={styleDelay(270)}>
+          {t.hero.stack}
+        </div>
         <p className="hero-intro stagger" style={styleDelay(320)}>
           {t.hero.intro}
         </p>
@@ -100,18 +162,8 @@ export function About() {
             <h2 className="block-title">{t.languages.heading}</h2>
             <span className="block-rule" aria-hidden="true" />
           </header>
-          <ul className="langs">
-            {LANGS.map((l) => (
-              <li key={l.name} className="lang-cell">
-                <span
-                  className="lang-dot"
-                  style={{ background: l.color }}
-                  aria-hidden="true"
-                />
-                {l.name}
-              </li>
-            ))}
-          </ul>
+          <SkillTier label={t.languages.proficient} groups={PROFICIENT} />
+          <SkillTier label={t.languages.familiar} groups={FAMILIAR} />
         </div>
       </section>
 
@@ -145,6 +197,7 @@ export function About() {
           </p>
           <ul className="tags">
             {t.interests.items.map((item, i) => {
+              if (!showAllInterests && i >= INTERESTS_VISIBLE && i !== activeInterest) return null
               const isActive = i === activeInterest
               return (
                 <li key={item.name}>
@@ -166,6 +219,20 @@ export function About() {
                 </li>
               )
             })}
+            {t.interests.items.length > INTERESTS_VISIBLE && (
+              <li>
+                <button
+                  type="button"
+                  className="tag tag-more"
+                  onClick={() => setShowAllInterests((v) => !v)}
+                  aria-expanded={showAllInterests}
+                >
+                  {showAllInterests
+                    ? t.interests.showLess
+                    : `${t.interests.showAll} (${t.interests.items.length})`}
+                </button>
+              </li>
+            )}
           </ul>
 
           {active && (
@@ -214,6 +281,13 @@ export function About() {
                     <span className="timeline-place">{row.place}</span>
                   </h4>
                   <p className="timeline-desc">{row.desc}</p>
+                  {row.bullets && (
+                    <ul className="timeline-bullets">
+                      {row.bullets.map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
                 <li className="timeline-axis-year" style={{ gridRow: i + 1 }}>
                   {row.year}

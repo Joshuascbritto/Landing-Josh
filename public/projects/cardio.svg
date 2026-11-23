@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" width="480" height="280" role="img" aria-label="Cardio telerehab">
+  <rect width="480" height="280" fill="#262624"/>
+  <!-- the heart with an ECG trace running through it -->
+  <path d="M150 214 C 92 172 64 140 64 108 C 64 84 82 66 104 66 C 124 66 140 78 150 94 C 160 78 176 66 196 66 C 218 66 236 84 236 108 C 236 140 208 172 150 214 Z" fill="#e0556a"/>
+  <path d="M40 142 H 104 l 12 -30 l 16 58 l 14 -44 l 10 16 H 262" fill="none" stroke="#f0efec" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- the phone with the patient's exercise plan -->
+  <rect x="312" y="52" width="112" height="184" rx="16" fill="#f0efec"/>
+  <rect x="324" y="74" width="88" height="44" rx="8" fill="#e0556a"/>
+  <text x="368" y="102" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="16" font-weight="700" fill="#fff">MET 4.2</text>
+  <rect x="330" y="134" width="12" height="12" rx="3" fill="#1baf7a"/>
+  <rect x="350" y="136" width="54" height="8" rx="4" fill="#c3c2b7"/>
+  <rect x="330" y="158" width="12" height="12" rx="3" fill="#1baf7a"/>
+  <rect x="350" y="160" width="44" height="8" rx="4" fill="#c3c2b7"/>
+  <rect x="330" y="182" width="12" height="12" rx="3" fill="none" stroke="#c3c2b7" stroke-width="2"/>
+  <rect x="350" y="184" width="50" height="8" rx="4" fill="#c3c2b7"/>
+  <circle cx="368" cy="218" r="5" fill="#e0556a"/>
+</svg>
