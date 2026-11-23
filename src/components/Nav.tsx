@@ -40,6 +40,13 @@ const FLAGS: { code: Locale; svg: ReactNode; label: string }[] = [
   { code: 'ru', svg: FlagRU, label: 'Русский' },
 ]
 
+// EN résumé for en/ru visitors, PT for pt. Files are generated from resume/*.html.
+const RESUME_HREF: Record<Locale, string> = {
+  en: '/resume/Joshua_Strauch_Resume.pdf',
+  ru: '/resume/Joshua_Strauch_Resume.pdf',
+  pt: '/resume/Joshua_Strauch_Curriculo.pdf',
+}
+
 const tabClass = ({ isActive }: { isActive: boolean }) =>
   'nav-tab' + (isActive ? ' is-active' : '')
 
@@ -64,6 +71,16 @@ export function Nav() {
             {t.nav.contact}
           </NavLink>
         </nav>
+
+        <a
+          className="nav-resume"
+          href={RESUME_HREF[locale]}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span aria-hidden="true">↓ </span>
+          {t.nav.resume}
+        </a>
 
         <div className="nav-langs" role="group" aria-label="language">
           {FLAGS.map((f) => (

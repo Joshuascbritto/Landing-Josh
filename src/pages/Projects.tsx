@@ -1,14 +1,12 @@
 import { useTranslation } from '../i18n/LanguageContext'
 
 // Repo NAMES are kept in English (they are code identifiers, not translatable).
+// `href` is omitted for private repos: the card shows a badge instead of a link.
 interface Repo {
   name: string
   language: string
   langColor: string
-  stars: number
-  forks: number
-  href: string
-  liveUrl: string
+  href?: string
   imgSrc: string
 }
 
@@ -17,40 +15,27 @@ const REPOS: Repo[] = [
     name: 'Waitless',
     language: 'TypeScript',
     langColor: '#3178c6',
-    stars: 0,
-    forks: 0,
     href: 'https://github.com/Joshuascbritto/waitless',
-    liveUrl: 'https://github.com/Joshuascbritto/waitless',
     imgSrc: '/projects/waitless.svg',
+  },
+  {
+    name: 'cardio-telerehab',
+    language: 'PHP',
+    langColor: '#4F5D95',
+    imgSrc: '/projects/cardio.svg',
   },
   {
     name: 'Jelly',
     language: 'Python',
     langColor: '#3572A5',
-    stars: 0,
-    forks: 0,
     href: 'https://github.com/Joshuascbritto/Jelly',
-    liveUrl: 'https://github.com/Joshuascbritto/Jelly',
     imgSrc: '/projects/jelly.svg',
-  },
-  {
-    name: 'Landing-Josh',
-    language: 'TypeScript',
-    langColor: '#3178c6',
-    stars: 0,
-    forks: 0,
-    href: 'https://github.com/Joshuascbritto/Landing-Josh',
-    liveUrl: 'https://github.com/Joshuascbritto/Landing-Josh',
-    imgSrc: '/projects/landing-josh.png',
   },
   {
     name: 'box-box',
     language: 'PHP',
     langColor: '#4F5D95',
-    stars: 0,
-    forks: 0,
     href: 'https://github.com/Joshuascbritto/box-box',
-    liveUrl: 'https://github.com/Joshuascbritto/box-box',
     imgSrc: '/projects/box-box.png',
   },
 ]
@@ -82,20 +67,21 @@ export function Projects() {
                 className="repo stagger"
                 style={styleDelay(120 + i * 70)}
               >
-                <a
-                  className="repo-thumb"
-                  href={r.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${r.name} preview`}
-                >
-                  <img
-                    src={r.imgSrc}
-                    alt={`${r.name} preview`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </a>
+                {r.href ? (
+                  <a
+                    className="repo-thumb"
+                    href={r.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${r.name} preview`}
+                  >
+                    <img src={r.imgSrc} alt={`${r.name} preview`} loading="lazy" decoding="async" />
+                  </a>
+                ) : (
+                  <div className="repo-thumb">
+                    <img src={r.imgSrc} alt={`${r.name} preview`} loading="lazy" decoding="async" />
+                  </div>
+                )}
                 <div className="repo-head">
                   <span className="repo-prompt" aria-hidden="true">$</span>
                   <h3 className="repo-name">{r.name}</h3>
@@ -115,22 +101,13 @@ export function Projects() {
                     />
                     {r.language}
                   </span>
-                  <span className="repo-stat">
-                    <span className="repo-stat-num">{r.stars}</span>
-                    {t.projects.stars}
-                  </span>
-                  <span className="repo-stat">
-                    <span className="repo-stat-num">{r.forks}</span>
-                    {t.projects.forks}
-                  </span>
-                  <a
-                    className="repo-link"
-                    href={r.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    → {t.projects.viewOnGithub}
-                  </a>
+                  {r.href ? (
+                    <a className="repo-link" href={r.href} target="_blank" rel="noreferrer">
+                      → {t.projects.viewOnGithub}
+                    </a>
+                  ) : (
+                    <span className="repo-private">{t.projects.privateBadge}</span>
+                  )}
                 </div>
               </li>
             ))}

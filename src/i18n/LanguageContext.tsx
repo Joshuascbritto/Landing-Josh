@@ -24,11 +24,29 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null)
 
+// Maps the browser's language preferences to a site locale.
+// `prefs` is navigator.languages, ordered by the visitor's preference,
+// e.g. ['en-US', 'ru', 'pt-BR']. Must return 'en' when nothing matches.
+function detectLocale(prefs: readonly string[]): Locale {
+  // First supported language in preference order wins, so ['en-US', 'ru']
+  // stays English while ['de-DE', 'ru'] lands on Russian.
+  for (const tag of prefs) {
+    const base = tag.toLowerCase().split('-')[0]
+    if (base === 'en' || base === 'pt' || base === 'ru') return base
+  }
+  return 'en'
+}
+
 function readInitialLocale(): Locale {
-  if (typeof window === 'undefined') return 'pt'
-  const stored = window.localStorage.getItem(STORAGE_KEY)
-  if (stored === 'pt' || stored === 'en' || stored === 'ru') return stored
-  return 'pt' // default per spec
+  if (typeof window === 'undefined') return 'en'
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY)
+    if (stored === 'pt' || stored === 'en' || stored === 'ru') return stored
+  } catch {
+    // localStorage may be blocked; fall through to detection
+  }
+  const prefs = navigator.languages?.length ? navigator.languages : [navigator.language]
+  return detectLocale(prefs)
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

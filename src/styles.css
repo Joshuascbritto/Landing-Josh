@@ -133,9 +133,28 @@ button:focus-visible {
   padding: 0 var(--gutter);
   min-height: 60px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: clamp(0.75rem, 2.4vw, 2rem);
+}
+
+.nav-resume {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 4px 10px;
+  white-space: nowrap;
+  transition: color var(--snap) steps(2, jump-none),
+              background var(--snap) steps(2, jump-none);
+}
+.nav-resume:hover,
+.nav-resume:focus-visible {
+  color: #000;
+  background: var(--accent);
+  outline: none;
 }
 
 .nav-prompt {
@@ -306,6 +325,13 @@ button:focus-visible {
   color: var(--mute);
   padding-right: 6px;
 }
+.hero-stack {
+  font-family: var(--mono);
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  color: var(--fg);
+  letter-spacing: 0.04em;
+  margin: -0.6rem 0 1.25rem;
+}
 .hero-intro {
   font-family: var(--sans);
   font-size: clamp(1rem, 1.3vw, 1.25rem);
@@ -420,6 +446,11 @@ button:focus-visible {
 .tag.is-active .tag-toggle {
   transform: rotate(180deg);
 }
+.tag-more {
+  color: var(--mute);
+  border-style: dashed;
+}
+
 .tag:hover,
 .tag:focus-visible {
   color: #000;
@@ -501,6 +532,34 @@ button:focus-visible {
   border-color: var(--accent);
   background: #000;
 }
+.skill-tier + .skill-tier { margin-top: 1.5rem; }
+.skill-tier-title {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+.skill-row {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.75rem;
+}
+.skill-row + .skill-row { margin-top: 8px; }
+.skill-key {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--mute);
+  padding-top: 8px;
+}
+@media (max-width: 540px) {
+  .skill-row { grid-template-columns: 1fr; gap: 0.3rem; }
+  .skill-key { padding-top: 0; }
+}
+
 .lang-dot {
   width: 8px;
   height: 8px;
@@ -601,6 +660,24 @@ button:focus-visible {
 }
 .timeline-entry[data-track='work'] .timeline-desc { margin-left: auto; }
 
+.timeline-bullets {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  max-width: 46ch;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--fg);
+}
+.timeline-bullets li + li { margin-top: 0.25rem; }
+.timeline-bullets li::before {
+  content: '› ';
+  color: var(--accent);
+  font-family: var(--mono);
+}
+.timeline-entry[data-track='work'] .timeline-bullets { margin-left: auto; }
+
 /* Track label rides along each entry; only shown once the axis moves aside
    and the headings above the columns are gone. */
 .timeline-track { display: none; }
@@ -619,7 +696,9 @@ button:focus-visible {
     grid-column: 2;
     text-align: left;
   }
-  .timeline-entry[data-track='work'] .timeline-desc { margin-left: 0; }
+  .timeline-entry[data-track='work'] .timeline-desc,
+  .timeline-entry[data-track='work'] .timeline-bullets { margin-left: 0; }
+  .timeline-bullets { max-width: 60ch; }
   .timeline-desc { max-width: 60ch; }
   .timeline-track {
     display: inline-block;
@@ -755,6 +834,13 @@ button:focus-visible {
   font-weight: 700;
   margin-right: 4px;
 }
+.repo-private {
+  margin-left: auto;
+  color: var(--mute);
+  letter-spacing: 0.04em;
+  padding: 3px 6px;
+  border: 1px dashed var(--line-2);
+}
 .repo-link {
   margin-left: auto;
   color: var(--accent);
@@ -771,7 +857,8 @@ button:focus-visible {
   border-color: var(--accent);
 }
 @media (max-width: 560px) {
-  .repo-link { margin-left: 0; }
+  .repo-link,
+  .repo-private { margin-left: 0; }
 }
 
 /* ==============================================================
@@ -941,9 +1028,27 @@ button:focus-visible {
     min-height: 0;
   }
   .nav-prompt {
-    grid-column: 1 / -1;
+    grid-column: 1;
+    grid-row: 1;
     font-size: 0.7rem;
   }
+  .nav-resume {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-size: 0.74rem;
+    padding: 3px 8px;
+  }
+  .nav-tabs {
+    grid-row: 2;
+  }
+}
+@media (max-width: 420px) {
+  .nav-tabs { gap: 0.7rem; }
+  .nav-tab { font-size: 0.92rem; }
+  .nav-langs { gap: 4px; }
+  .flag { width: 28px; height: 22px; }
+  .flag svg { width: 20px; height: 15px; }
   .nav-tabs {
     grid-column: 1;
     gap: 1rem;
